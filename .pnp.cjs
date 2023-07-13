@@ -8051,7 +8051,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"],\
             ["react-icons", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:4.8.0"],\
-            ["tailwindcss", "virtual:8758cf50f0a78fe46e38f506c44b3d8e247141fed6276a7d4fba7d3d535a1ab738efab91a84f6c1729db78fbfa68ad654a052d8656110c75f54bb655feb156b2#npm:3.2.7"]\
+            ["tailwindcss", "virtual:8758cf50f0a78fe46e38f506c44b3d8e247141fed6276a7d4fba7d3d535a1ab738efab91a84f6c1729db78fbfa68ad654a052d8656110c75f54bb655feb156b2#npm:3.2.7"],\
+            ["uniweb-widget-utils", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.0.5"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -8467,6 +8468,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/universalify-npm-2.0.0-03b8b418a8-2406a4edf4.zip/node_modules/universalify/",\
           "packageDependencies": [\
             ["universalify", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["uniweb-widget-utils", [\
+        ["npm:1.0.5", {\
+          "packageLocation": "./.yarn/cache/uniweb-widget-utils-npm-1.0.5-805b10969f-059eabec92.zip/node_modules/uniweb-widget-utils/",\
+          "packageDependencies": [\
+            ["uniweb-widget-utils", "npm:1.0.5"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.0.5", {\
+          "packageLocation": "./.yarn/__virtual__/uniweb-widget-utils-virtual-24f9c29787/0/cache/uniweb-widget-utils-npm-1.0.5-805b10969f-059eabec92.zip/node_modules/uniweb-widget-utils/",\
+          "packageDependencies": [\
+            ["uniweb-widget-utils", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.0.5"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\

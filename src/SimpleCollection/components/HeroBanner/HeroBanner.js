@@ -7,18 +7,16 @@ import './HeroBanner.css'
 import { GenericVideoFacade } from '../videoFacade/videoFacade'
 
 const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-  { name: 'Log in', href: '#' },
+  { name: 'Home', href: '#' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 export default function HeroBanner({block}) {
     
 
-    const { title = '', subheading = '', description = '' } = block.header;
-  
+    const { title = '', subheading = '', description = '' } = block.main.header;
+    console.log(block)
+    console.log(title, subheading, description);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
 

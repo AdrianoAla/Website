@@ -5485,6 +5485,7 @@ __metadata:
     react-dom: ^18.2.0
     react-icons: ^4.6.0
     tailwindcss: ^3.2.4
+    uniweb-widget-utils: ^1.0.5
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -5828,6 +5829,16 @@ __metadata:
   version: 2.0.0
   resolution: "universalify@npm:2.0.0"
   checksum: 2406a4edf4a8830aa6813278bab1f953a8e40f2f63a37873ffa9a3bc8f9745d06cc8e88f3572cb899b7e509013f7f6fcc3e37e8a6d914167a5381d8440518c44
+  languageName: node
+  linkType: hard
+
+"uniweb-widget-utils@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "uniweb-widget-utils@npm:1.0.5"
+  peerDependencies:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  checksum: 059eabec92161ea5e29c272b97b4b33877f4ac6fa4121c48e4b4c7e9eea78612e02a7bd645e2ea8785b5c341bdd20625bfd5116d2b0413fb0a82e58585f7925b
   languageName: node
   linkType: hard
 
