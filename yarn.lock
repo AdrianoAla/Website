@@ -1604,6 +1604,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^2.0.14":
+  version: 2.0.18
+  resolution: "@heroicons/react@npm:2.0.18"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 597e8668818623d568a302e343ef06b69f62ce297c14b88c2ebbfed0c0f00cd85ec44fae33ec8a249931b4e7dcf145743ae3198095a9f4682108de5155f5f4c3
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
@@ -5468,6 +5477,7 @@ __metadata:
   resolution: "simple-collection@workspace:src/SimpleCollection"
   dependencies:
     "@headlessui/react": ^1.7.13
+    "@heroicons/react": ^2.0.14
     "@tailwindcss/line-clamp": ^0.4.4
     "@uniwebcms/express": 0.2.7
     "@uniwebcms/module-sdk": ^1.6.1

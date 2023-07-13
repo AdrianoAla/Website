@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@headlessui/react": "^1.7.13",
+        "@heroicons/react": "^2.0.14",
         "@tailwindcss/line-clamp": "^0.4.4",
         "@uniwebcms/express": "0.2.7",
         "@uniwebcms/module-sdk": "^1.6.1",
