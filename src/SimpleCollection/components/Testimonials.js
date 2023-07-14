@@ -1,22 +1,19 @@
 import React from "react";
+import {Image} from "@uniwebcms/module-sdk"
 
-export default function Testimonials(props) {
+export default function Testimonials({block, profile}) {
 
-    const { items } = props.block;
+    const { items } = block;
 
     const testimonials = items.map((item) => {
         const { header, body } = item;
-        console.log(
-            "body", body
-        )
-
-        const { subtitle, description } = header;
+        const { description } = header;
 
         return {
             quote: description,
             name: (body.paragraphs[0] + "<br/>" + body.paragraphs[1]),
-            company: null,   //body?.imgs?.[0] || null,
-            picture: null,   //body?.imgs?.[1] || null,
+            company: item.banner || null,
+            picture: body.imgs[0] || null,
         };
     });
 
@@ -24,9 +21,14 @@ export default function Testimonials(props) {
       <section className="flex flex-col justify-between bg-indigo-800 md:flex-row">
         {testimonials.map((testimonial) => (
         <div className="w-screen px-8 py-4 border border-indigo-900 md:w-1/2 md:px-16">
-          <div className="px-6 py-12 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 lg:pr-16">
+          <div className="px-6 py-12 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 lg:pr-16 items-baseline">
             <div className="md:flex-shrink-0">
-              <img className="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-300.svg" alt="Tuple" />
+              <Image 
+                  profile={profile}
+                  value={testimonial.company.value}
+                  alt={testimonial.company.alt}
+                  className={`max-h-12 object-contain float-left`}
+                />
             </div>
             <blockquote className="mt-6 md:flex md:flex-grow md:flex-col">
               <div className="relative text-lg font-medium text-white md:flex-grow">
@@ -44,10 +46,11 @@ export default function Testimonials(props) {
               <footer className="mt-8">
                 <div className="flex items-start">
                   <div className="inline-flex flex-shrink-0 border-2 border-white rounded-full">
-                    <img
-                      className="w-12 h-12 rounded-full"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
+                    <Image 
+                      profile={profile}
+                      value={testimonial.picture.value}
+                      alt={testimonial.picture.alt}
+                      className={`w-12 h-12 rounded-full`}
                     />
                   </div>
                   <div className="ml-4">

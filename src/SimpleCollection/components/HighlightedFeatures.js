@@ -1,27 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import { EnvelopeIcon, SparklesIcon } from "@heroicons/react/24/outline";
-import {DocumentImage} from '@uniwebcms/module-sdk';
+import {Image} from '@uniwebcms/module-sdk';
 
-export default function Features(props) {
+export default function Features({block, profile, page}) {
 
-    const { body, items, activeLang } = props.block;
+    const { body, items } = block;
 
-    console.log("MMM", props.block)
 
     const [features, setFeatures] = useState([]);
+
+    // const profile = page.getPageProfile();
 
     useEffect(() => {
       items.map((item, index) => {
 
-          const { header, body } = item;
-
-          console.log('itemmm', item)
+          const { header, body, banner } = item;
 
           setFeatures(features => [...features,{
               name: header.title || '',
               description:  header.subtitle || '',
               button:  header.description || '',
-              image : body.imgs[0],
+              image : banner,
           }]);
       })
     }, []);
@@ -36,15 +35,13 @@ export default function Features(props) {
         <div className="py-24 overflow-hidden bg-white sm:py-32">
           <div className="px-6 mx-auto max-w-7xl lg:px-8">
             <div className="grid max-w-2xl grid-cols-1 mx-auto gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start">
-              {feature.image == "left" && (
+              {feature.image.direction == "left" && (
                 <div>
-                  <DocumentImage
-                    contentId={feature.image.contentId}
+                  <Image
+                    profile={profile}
                     value={feature.image.value}
-                    alt={feature.name}
-                    activeLang={activeLang}
-                    className={"max-h-12"}
-                  ></DocumentImage>
+                    alt={feature.image.alt}
+                  ></Image>
                 </div>
               )}
               <div className="lg:pt-4 lg:pr-4">
@@ -63,15 +60,15 @@ export default function Features(props) {
                   </div>
                 </div>
               </div>
-              {feature.image == "right" && (
-              <DocumentImage
-                  contentId={feature.image.contentId}
-                  value={feature.image.value}
-                  alt={feature.name}
-                  activeLang={activeLang}
-                  className={"max-h-12"}
-                ></DocumentImage>
-            )}
+              {feature.image.direction == "right" && (
+                <div>
+                  <Image
+                    profile={profile}
+                    value={feature.image.value}
+                    alt={feature.image.alt}
+                  ></Image>
+                </div>
+              )}
             </div>
           </div>
         </div>

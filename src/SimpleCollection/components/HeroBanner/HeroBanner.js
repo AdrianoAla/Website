@@ -5,19 +5,34 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import './HeroBanner.css'
 import { GenericVideoFacade } from '../videoFacade/videoFacade'
+import { Link, twMerge } from '@uniwebcms/module-sdk'
 
 const navigation = [
   { name: 'Home', href: '#' },
   { name: 'Blog', href: '/blog' },
 ]
 
-export default function HeroBanner({block}) {
+export default function HeroBanner({block, website, page}) {
     
 
     const { title = '', subheading = '', description = '' } = block.main.header;
-    console.log(block)
-    console.log(title, subheading, description);
+
+    const videoLink = block.main.body.links[0].href
+    const videoThumbnail = block.main.body.links[1].href
+    const prompt = block.main.body.paragraphs[0]
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [email, setEmail] = useState('');
+
+    const siteId = website.getSiteId();
+    const activeRoute = page.activeRoute;
+
+    const pages =  website.getPageHierarchy({
+      nested: false,
+      filterEmpty: true
+    });
+
+    console.log ("hierarchy", pages);
 
 
   return (
@@ -37,11 +52,26 @@ export default function HeroBanner({block}) {
                 <Bars3Icon className="w-6 h-6" aria-hidden="true" />
               </button>
               <div className="hidden lg:ml-12 lg:block lg:space-x-14">
-                {navigation.map((item) => (
-                  <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                    {item.name}
-                  </a>
-                ))}
+              {pages.map((page, index) => {
+                            if (page.child_items?.length) {
+                                return <NavbarMenu key={index} {...page} />;
+                            } else {
+                                const { route, label } = page;
+                                const active = route === activeRoute;
+
+                                return (
+                                    <Link
+                                        key={index}
+                                        to={route}
+                                        className={twMerge(
+                                            'text-base lg:text-lg font-semibold pr-0.5',
+                                            active && '!text-[var(--link-active)]'
+                                        )}>
+                                        {label}
+                                    </Link>
+                                );
+                            }
+                        })}
               </div>
             </nav>
             
@@ -91,11 +121,15 @@ export default function HeroBanner({block}) {
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600" dangerouslySetInnerHTML={{__html: description}}></p>
               <div className="flex flex-col mt-10 align-middle">
-                <p className='mb-2'>Sign up to get notified when Uniweb 3.0 is ready.</p>
+                <p className='mb-2' dangerouslySetInnerHTML={{__html: prompt}}></p>
                 <div className='flex '>
                   <input
                     type="text" 
                     name='email' 
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value || '');
+                    }}
                     placeholder='Enter your email' 
                     className='p-3 text-base font-thin text-gray-500 border border-gray-300 rounded-md shadow-sm w-[70%] sm:w-96'
                   />
@@ -104,7 +138,12 @@ export default function HeroBanner({block}) {
                     type='button' 
                     value='Notify Me' 
                     className='p-3 px-6 ml-3 text-white transition-all bg-gray-800 border border-gray-800 rounded-md shadow-sm hover:bg-white hover:text-gray-800 hover:cursor-pointer' 
-                    onClick={() => alert('Thank you for your interest!')}
+                    onClick={() => 
+                      website.submitWebsiteForm(siteId, 'newsletter', {email}).then((res) => {
+                        console.log(res)
+                        alert("Thank you for your interest.")
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -116,14 +155,16 @@ export default function HeroBanner({block}) {
       <div className="bg-transparent dotted sm:absolute sm:inset-y-0 sm:right-0 sm:w-1/4"></div>
       <div className='sm:flex sm:w-screen sm:flex-col sm:justify-center lg:block sm:items-center'>
         <div className='flex sm:block static z-50 flex-row justify-center h-[299px] sm:max-h-[29.9rem] sm:max-w-[44.8rem] sm:w-screen sm:h-screen lg:h-[299px] lg:w-[448px] lg:block lg:absolute lg:top-[30%] lg:right-[10%]'>
-          <GenericVideoFacade
-            videoURL='https://upload.wikimedia.org/wikipedia/commons/transcoded/a/a7/How_to_make_video.webm/How_to_make_video.webm.720p.vp9.webm'
-            width={448}
-            height={299}
-            thumbnail={'https://media.discordapp.net/attachments/483298900497661953/1070137221551759390/image.png'}
-            border={true}
-            style={null}
-          />
+          {!mobileMenuOpen && 
+            <GenericVideoFacade
+              videoURL={videoLink}
+              width={448}
+              height={299}
+              thumbnail={videoThumbnail}
+              border={true}
+              style={null}
+            />
+          }
         </div>
       </div>
     </div>

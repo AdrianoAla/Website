@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import { AcademicCapIcon, ArrowUpRightIcon, CheckBadgeIcon, CheckCircleIcon, ChevronLeftIcon, CreditCardIcon, UserGroupIcon } from '@heroicons/react/24/outline'
-import {DocumentImage} from '@uniwebcms/module-sdk';
+import {Image} from '@uniwebcms/module-sdk';
 
 
-export default function Solutions(props) {
+export default function Solutions({ block }) {
 
-    const { block, activeLang, documentId } = props;
+    const items = JSON.parse(JSON.stringify(block.items)); // wtf how does this work???
 
     const {title, subheading, description} = block.items[0].header;
+
+    items.shift();
 
     const [features, setFeatures] = useState([]);
 
     useEffect(() => {
 
-        block.items.map((item, index) => {
+        items.map((item, index) => {
 
             const { header, } = item;
 
@@ -48,8 +50,8 @@ export default function Solutions(props) {
                   <div className="flex items-center justify-center w-10 h-10 mb-8 rounded-lg" style={{
                     backgroundColor: `rgba(${feature.color.substring(1, feature.color.length - 1)}, 0.1)`
                   }}>
-                    {/* <DocumentImage
-                        documentId={documentId}
+                    {/* <Image
+                        profile={documentId}
                         value={feature.image.value}
                         alt={feature.image.alt}
                         className="w-6 h-6"

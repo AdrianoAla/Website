@@ -4,8 +4,7 @@ import React from 'react';
 export default function (props) {
     const { main, items } = props.block;
 
-    const title = items[0].header.title
-    const description = items[0].header.subtitle
+    const { title, subtitle } = items[0].header
 
     items.shift();
 
@@ -13,11 +12,11 @@ export default function (props) {
       const { header } = item;
 
       const { title, subtitle } = header;
-      console.log(title, subtitle)
       return {
           title,
           subtitle,
       };
+
     });
 
     return (
@@ -26,7 +25,7 @@ export default function (props) {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-5">
               <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900" dangerouslySetInnerHTML={{__html: title}}></h2>
-              <p className="mt-4 text-base leading-7 text-gray-600" dangerouslySetInnerHTML={{__html: description}}></p>
+              <p className="mt-4 text-base leading-7 text-gray-600" dangerouslySetInnerHTML={{__html: subtitle}}></p>
             </div>
             <div className="mt-10 lg:col-span-7 lg:mt-0">
               <dl className="space-y-10">

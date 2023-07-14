@@ -9,11 +9,11 @@ const icons = [
     HeartIcon,
 ]
 
-export default function Customizes(props) {
+export default function Customizes({block}) {
 
-  const { items } = props.block;
+    const items = JSON.parse(JSON.stringify(block.items));
 
-  const title = items[0].header.title
+    const title = block.items[0].header.title
   
     items.shift();
 

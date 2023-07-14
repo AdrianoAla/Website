@@ -1,13 +1,38 @@
 import React, { useEffect } from 'react';
 
-//import { getListProfileItems } from 'site-services';
+import { Profile, useLoadProfileBody, useGetProfile } from '@uniwebcms/module-sdk';
 import { useState } from 'react';
 
 export default function Blog({block}) {
     const [posts, setPosts] = useState([]);
     const { theme, properties, items } = block;
+
+    console.log("params", block.params)
     const [list, setList] = useState([]);
     const {title = '', subtitle = ''} = block.main.header || {};
+
+    const p = useGetProfile("list", 6);
+
+    if (!p) return null;
+
+    const articles = p.at("selected_items");
+
+    console.log("profile", p);
+
+    console.log("articles", articles)
+
+    articles.forEach(article => {
+
+      //let profile = useGetProfile(article.profile_type, article.profile_id)
+
+      //console.log(`article ${article.profile_id}`, profile);
+
+    })
+
+
+    // const data = useLoadProfileBody(p);
+
+    // console.log("data", data);
     
     // useEffect(() => {
     //   getListProfileItems(dataSource.id).then (data => {
