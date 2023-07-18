@@ -1,33 +1,38 @@
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
+import { Image, SafeHtml, Link } from '@uniwebcms/module-sdk';
 
-const icons = [
-    PhoneIcon,
-    LifebuoyIcon,
-]
 
-export default function EnterpriseSolutions(props) {
-    const { block } = props;
+export default function EnterpriseSolutions({block, profile, website}) {
 
-    const {title, description} = block.items[0].header;
+    const {main, items} = block;
 
-    block.items.shift();
+    const {title, subtitle} = main.header;
+    const {value, alt} = main.banner;
+    
+    const alignment = main.header.alignment;
+    const align_items = (alignment === "left" || alignment === "") ? "items-start" : alignment === "center" ? "items-center" : "items-end";
 
     const [supportLinks, setSupportLinks] = useState([]);
 
     useEffect(() => {
-        block.items.forEach((item, index) => {
-            const {header, body} = item;
+        items.forEach((item) => {
+            const {header, body, banner} = item;
 
-            
+            const {subtitle} = header;
 
-            const {title} = header;
+            let CTA = body.paragraphs[0];
+
+            if (body.links.length > 0) {
+              CTA = body.links[0];
+            }
 
             setSupportLinks(supportLinks => [...supportLinks,{
-                name: title || '',
+                name: subtitle || '',
                 list: body.lists[0],
-                icon: icons[index],
+                icon: banner,
+                CTA: CTA,
             }]);
+
         });
     }, []);
 
@@ -36,48 +41,58 @@ export default function EnterpriseSolutions(props) {
   return (
     <div className="bg-white">
       {/* Header */}
-      <div className="relative bg-gray-800 pb-32">
+      <div className="relative pb-32 bg-gray-800">
         <div className="absolute inset-0">
-          <img
-            className="h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-            alt=""
+          <Image
+            profile={profile}
+            value={value}
+            alt={alt}
           />
           <div className="absolute inset-0 bg-gray-800 mix-blend-multiply" aria-hidden="true" />
         </div>
-        <div className="relative mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl" dangerouslySetInnerHTML={{__html: title}}></h1>
-          <p className="mt-6 max-w-3xl text-xl text-gray-300" dangerouslySetInnerHTML={{__html: description}}>
+        <div className={`relative flex flex-col px-6 py-24 mx-auto max-w-7xl sm:py-32 lg:px-8 text-${alignment} ${align_items}`}>
+          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"><SafeHtml value={title}/></h1>
+          <p className="max-w-3xl mt-6 text-xl text-gray-300">
+            <SafeHtml value={subtitle} />
           </p>
         </div>
       </div>
 
       {/* Overlapping cards */}
-      <section className="relative z-10 mx-auto -mt-32 max-w-7xl px-6 pb-32 lg:px-8" aria-labelledby="contact-heading">
+      <section className="relative z-10 px-6 pb-32 mx-auto -mt-32 max-w-7xl lg:px-8" aria-labelledby="contact-heading">
         <h2 className="sr-only" id="contact-heading">
           Contact us
         </h2>
         <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
           {supportLinks.map((link) => (
-            <div key={link.name} className="flex flex-col rounded-2xl bg-white shadow-xl">
+            <div key={link.name} className="flex flex-col bg-white shadow-xl rounded-2xl">
               <div className="relative flex-1 px-6 pt-16 pb-8 md:px-8">
-                <div className="absolute top-0 inline-block -translate-y-1/2 transform rounded-xl bg-indigo-600 p-5 shadow-lg">
-                  <link.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                <div className="absolute top-0 inline-block p-5 transform -translate-y-1/2 bg-indigo-600 shadow-lg rounded-xl">
+                  <Image 
+                    profile={profile}
+                    value={link.icon.value}
+                    className="w-6 h-6 text-white"
+                  />
                 </div>
                 <h3 className="text-xl font-medium text-gray-900">{link.name}</h3>
                 <div className='text-base text-gray-500'>
-                    <ul className='list-disc ml-4 mt-2'>
+                    <ul className='mt-2 ml-4 list-disc'>
                         {link.list.map(l => {
                             return (
-                                <li key={l.paragraphs[0]} dangerouslySetInnerHTML={{__html: l.paragraphs[0]}}></li>
+                                <li key={l.paragraphs[0]}><SafeHtml value={l.paragraphs[0]}/></li>
                             )
                         })}
                     </ul>
                 </div>
               </div>
-              <div className="rounded-bl-2xl rounded-br-2xl bg-gray-50 p-6 md:px-8">
-                <a href={'#'} className="text-base font-medium text-indigo-700 hover:text-indigo-600">
-                  Learn More<span aria-hidden="true"> &rarr;</span>
+              <div className="p-6 rounded-bl-2xl rounded-br-2xl bg-gray-50 md:px-8">
+                <a className="text-base font-medium text-indigo-700 hover:text-indigo-600">
+                  <Link
+                    profile={profile}
+                    to={website.makeHref(link.CTA.href)}
+                  >
+                    <SafeHtml value={link.CTA.label}/>
+                  </Link>
                 </a>
               </div>
             </div>

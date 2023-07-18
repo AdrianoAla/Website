@@ -24,9 +24,7 @@ const IconSVG = () => {
 }
 
 
-
-
-const createStyles = (width, height, thumbnail) => {
+const createStyles = (thumbnail) => {
     return { 
         background: `
             linear-gradient(
@@ -57,7 +55,7 @@ function GenericVideoFacade({
     return (
         <div 
             className={`facade-div ${border ? `facade-border` : ``}`}
-            style={(style == null) ? (show ? createStyles(width, height, undefined) : createStyles(width, height, thumbnail)) : style}
+            style={(style == null) ? (show ? createStyles(undefined) : createStyles(thumbnail)) : style}
             onClick={() => { setShow(true) }}
         >
 

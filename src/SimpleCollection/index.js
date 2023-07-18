@@ -1,6 +1,4 @@
 // import local components
-
-import Block from './components/Block';
 import Newsletter from './components/Newsletter';
 import HeroBanner from './components/HeroBanner/HeroBanner'
 import Features from './components/FAQ'
@@ -10,8 +8,10 @@ import Testimonials from './components/Testimonials';
 import Customize from './components/Customize';
 import Solutions from './components/Solutions';
 import EnterpriseSolutions from './components/EnterpriseSolutions';
-import Blog from './components/Blog';
+import Blog from './components/Blog/Blog' ;
 import LogoCloud from './components/LogoCloud';
+import PageHeader from './components/PageHeader';
+import PageFooter from './components/PageFooter'
 
 // Import the express library
 import * as expressModule from '@uniwebcms/express'; // See README for more details: https://github.com/uniwebcms/express/blob/main/README.md
@@ -19,8 +19,6 @@ import * as expressModule from '@uniwebcms/express'; // See README for more deta
 import './index.css';
 
 export default {
-    ...expressModule,
-    Block,
     Newsletter,
     HeroBanner,
     Features,
@@ -32,4 +30,6 @@ export default {
     EnterpriseSolutions,
     Blog,
     LogoCloud,
+    PageHeader,
+    PageFooter,
 };

@@ -1,6 +1,5 @@
+import {Image, SafeHtml, Link} from '@uniwebcms/module-sdk';
 import React, {useEffect, useState} from 'react';
-import { EnvelopeIcon, SparklesIcon } from "@heroicons/react/24/outline";
-import {Image} from '@uniwebcms/module-sdk';
 
 export default function Features({block, profile, page}) {
 
@@ -19,8 +18,9 @@ export default function Features({block, profile, page}) {
           setFeatures(features => [...features,{
               name: header.title || '',
               description:  header.subtitle || '',
-              button:  header.description || '',
-              image : banner,
+              button:  body?.links[0] || null,
+              icon: banner || null,
+              image : body?.imgs[0] || null,
           }]);
       })
     }, []);
@@ -46,17 +46,27 @@ export default function Features({block, profile, page}) {
               )}
               <div className="lg:pt-4 lg:pr-4">
                 <div className="lg:max-w-lg">
-
-                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" dangerouslySetInnerHTML={{ __html: feature.name }}></p>
-                  <p className="mt-6 text-lg leading-8 text-gray-600" dangerouslySetInnerHTML={{ __html: feature.description }}>
+                  {feature.icon && (
+                    <Image
+                      profile={profile}
+                      value={feature.icon.value}
+                      alt={feature.icon.alt}
+                      className="w-12 h-12 p-3 text-white bg-indigo-500 rounded-md"
+                    />
+                  )}
+                  <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" ><SafeHtml value={feature.name}/></p>
+                  <p className="mt-6 text-lg leading-8 text-gray-600" >
+                    <SafeHtml value={feature.description}/>
                   </p>
                   <div className="mt-8">
-                    <a
-                      href="#"
-                      className="inline-flex rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                      dangerouslySetInnerHTML={{ __html: feature.button }}
-                    >
-                    </a>
+                    {feature.button && 
+                      <Link
+                        to={feature.button.href}
+                        className="inline-flex rounded-md bg-indigo-600 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      >
+                        <SafeHtml value={feature.button.label}/>
+                      </Link>
+                    }
                   </div>
                 </div>
               </div>

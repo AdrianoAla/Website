@@ -1,5 +1,5 @@
 import React from "react";
-import {Image} from "@uniwebcms/module-sdk"
+import {Image, SafeHtml} from "@uniwebcms/module-sdk"
 
 export default function Testimonials({block, profile}) {
 
@@ -21,7 +21,7 @@ export default function Testimonials({block, profile}) {
       <section className="flex flex-col justify-between bg-indigo-800 md:flex-row">
         {testimonials.map((testimonial) => (
         <div className="w-screen px-8 py-4 border border-indigo-900 md:w-1/2 md:px-16">
-          <div className="px-6 py-12 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 lg:pr-16 items-baseline">
+          <div className="items-baseline px-6 py-12 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 lg:pr-16">
             <div className="md:flex-shrink-0">
               <Image 
                   profile={profile}
@@ -40,7 +40,8 @@ export default function Testimonials({block, profile}) {
                 >
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                 </svg>
-                <p className="relative" dangerouslySetInnerHTML={{__html: testimonial.quote}}>
+                <p className="relative" >
+                  <SafeHtml value={testimonial.quote}/>
                 </p>
               </div>
               <footer className="mt-8">
@@ -54,7 +55,9 @@ export default function Testimonials({block, profile}) {
                     />
                   </div>
                   <div className="ml-4">
-                    <div className="text-base font-medium" dangerouslySetInnerHTML={{__html: testimonial.name}}></div>
+                    <div className="text-base font-medium text-white">
+                      <SafeHtml value={testimonial.name}/>
+                    </div>
                   </div>
                 </div>
               </footer>
