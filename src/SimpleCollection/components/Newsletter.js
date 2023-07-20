@@ -50,7 +50,7 @@ export default function Newsletter({block, profile, website}) {
                   className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                   onClick={(e) => {
                     e.preventDefault();
-                    website.submitWebsiteForm(siteId, 'newsletter', {email}).then((res) => {
+                    website.submitWebsiteForm('newsletter', {email}).then((res) => {
                       console.log(res)
                       alert("Thank you for your interest.")
                     });

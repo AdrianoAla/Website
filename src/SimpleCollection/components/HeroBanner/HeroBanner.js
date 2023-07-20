@@ -25,7 +25,6 @@ export default function HeroBanner({block, website, profile}) {
 
     const videoFacade = videoLink && videoThumbnail;
 
-    const siteId = website.getSiteId();
 
   return (
     <div className={`relative min-h-screen bg-white ${block.theme}`}>
@@ -71,7 +70,7 @@ export default function HeroBanner({block, website, profile}) {
                       value='Notify Me' 
                       className='p-3 px-6 ml-3 text-white transition-all bg-gray-800 border border-gray-800 rounded-md shadow-sm hover:bg-white hover:text-gray-800 hover:cursor-pointer' 
                       onClick={() => 
-                        website.submitWebsiteForm(siteId, 'newsletter', {email}).then((res) => {
+                        website.submitWebsiteForm('newsletter', {email}).then((res) => {
                           console.log(res)
                           alert("Thank you for your interest.")
                         })
