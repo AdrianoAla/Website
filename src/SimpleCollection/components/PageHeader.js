@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, twMerge, Image, SafeHtml } from '@uniwebcms/module-sdk'
@@ -13,9 +13,14 @@ export default function PageHeader({block, website, page, profile}) {
   });
 
   const [initialPosition, setIntialPosition] = useState(true);
+  const [context, setContext] = useState("");
   const { sticky, alignment } = block.params;
   const left_aligned = alignment == "left";
 
+  useEffect(() => {
+    const context = page.childBlocks?.[1]?.theme;
+    setContext(context);
+  }, [page.childBlocks?.[1]?.theme]);
 
 
   const banner = block.main.banner;
@@ -33,22 +38,22 @@ export default function PageHeader({block, website, page, profile}) {
 
 
   return (
-    <div className={twMerge("absolute top-0 left-0 z-50 flex w-full", !initialPosition && sticky && "fixed", !left_aligned && "justify-center")}>
+    <div className={twMerge("absolute top-0 left-0 z-50 flex w-full", !initialPosition && sticky && "fixed", !left_aligned && "justify-center", context)}>
       <div className={twMerge("transition-all duration-300 flex w-fit p-2", 
-                              !initialPosition && sticky && "shadow-2xl bg-white",
+                              !initialPosition && sticky && "shadow-2xl bg-[var(--primary)]",
                               !initialPosition && sticky && !left_aligned && "rounded-xl",
                               left_aligned && "w-full"
       )} id="navbar">
-        <nav className="flex items-center justify-between p-8 sm:h-10 lg:justify-start" aria-label="Global">
+        <nav className="flex items-center justify-between w-full p-8 sm:h-10 lg:justify-start" aria-label="Global">
           <Image 
             profile={profile}
             value={banner.value}
             alt={banner.alt}
-            className={"-m-1.5 p-1.5 object-contain w-[50px] h-[50px]"}
+            className={"-m-1.5 p-1.5 object-contain w-[50px] h-[50px] pngborder"}
           />
           <button
             type="button"
-            className="-m-2.5 rounded-md p-2.5 text-gray-700 lg:hidden"
+            className="-m-2.5 rounded-md p-2.5 text-[var(--on\_primary)] lg:hidden"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -67,7 +72,7 @@ export default function PageHeader({block, website, page, profile}) {
                           key={index}
                           to={route}
                         >
-                          <p className={'inline-block text-base lg:text-lg font-semibold pr-0.5 hover:text-gray-800 hover:scale-125 transition-all duration-300' }>{label}</p>
+                          <p className={'!text-[var(--on\\_primary)] inline-block text-base lg:text-lg font-semibold pr-0.5 hover:scale-125 transition-all duration-300' }>{label}</p>
                       </Link>
                   );
                 }

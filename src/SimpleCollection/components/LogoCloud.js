@@ -21,7 +21,7 @@ export default function LogoCloud({block, profile}) {
       <div className="bg-white">
         <div className="px-6 py-12 mx-auto max-w-7xl lg:py-16 lg:px-8">
           <p className="text-lg font-semibold text-center text-gray-600" ><SafeHtml value={title}/></p>
-          <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+          <div className="mt-6 grid grid-cols-1 gap-0.5 md:grid-cols-3 lg:mt-8">
             {clients.map((client) => (
               <div className="flex justify-center col-span-1 px-8 py-8 transition-all ease-in-out bg-gray-50 hover:bg-gray-700 hover:cursor-pointer">
                 <Image

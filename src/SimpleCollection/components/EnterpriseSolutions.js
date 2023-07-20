@@ -20,7 +20,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
 
             const {subtitle} = header;
 
-            let CTA = body.paragraphs[0];
+            let CTA = body.links[0];
 
             if (body.links.length > 0) {
               CTA = body.links[0];
@@ -32,6 +32,8 @@ export default function EnterpriseSolutions({block, profile, website}) {
                 icon: banner,
                 CTA: CTA,
             }]);
+
+            console.log("link", CTA.href, website.makeHref(CTA.href));
 
         });
     }, []);
@@ -86,14 +88,13 @@ export default function EnterpriseSolutions({block, profile, website}) {
                 </div>
               </div>
               <div className="p-6 rounded-bl-2xl rounded-br-2xl bg-gray-50 md:px-8">
-                <a className="text-base font-medium text-indigo-700 hover:text-indigo-600">
+                <span className="text-base font-medium text-indigo-700 hover:text-indigo-600">
                   <Link
-                    profile={profile}
-                    to={website.makeHref(link.CTA.href)}
+                    to={`${website.makeHref(link.CTA.href)}`}
                   >
                     <SafeHtml value={link.CTA.label}/>
                   </Link>
-                </a>
+                </span>
               </div>
             </div>
           ))}

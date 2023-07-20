@@ -11,12 +11,13 @@ export default function Articles({block}) {
     const {blog_page} = block.params
 
     const prefix = blog_page ? '' : "Blog/"
-    // TODO implement something like this ```page.getBlocks().length == 1```
 
     const {title = '', subtitle = ''} = block.main.header || {};
 
+    if (block.dataSource?.contentType != "list") return null;
+
     useEffect(() => {
-      Profile.getProfilesInList(6).then(data => {
+      Profile.getProfilesInList(block.dataSource.contentId).then(data => {
         if (!blog_page) data = data.slice(0, 3)
         setPosts(data);
       })

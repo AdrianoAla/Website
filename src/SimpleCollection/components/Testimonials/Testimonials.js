@@ -1,9 +1,10 @@
 import React from "react";
 import {Image, SafeHtml} from "@uniwebcms/module-sdk"
+import TestimonialCarousel from "./TestimonialsCarousel";
 
 export default function Testimonials({block, profile}) {
 
-    const { items } = block;
+    const { main, items } = block;
 
     const testimonials = items.map((item) => {
         const { header, body } = item;
@@ -17,8 +18,11 @@ export default function Testimonials({block, profile}) {
         };
     });
 
+    if (testimonials.length > 2) { return TestimonialCarousel({block, profile, testimonials}) };
+
     return (
       <section className="flex flex-col justify-between bg-indigo-800 md:flex-row">
+        <h1><SafeHtml value={main.header.title}/></h1>
         {testimonials.map((testimonial) => (
         <div className="w-screen px-8 py-4 border border-indigo-900 md:w-1/2 md:px-16">
           <div className="items-baseline px-6 py-12 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 lg:pr-16">

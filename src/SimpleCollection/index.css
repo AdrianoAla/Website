@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pngborder {
+  filter: drop-shadow(0px -1px 0 white) 
+        drop-shadow(-1px 0px 0 white)
+        drop-shadow(0px 1px 0 white) 
+         drop-shadow(1px 0px 0 white);
+}

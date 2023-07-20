@@ -120,3 +120,5 @@ typings/
 builder/entries/*
 apps/*/public/dev
 cloudflared
+
+**/.DS_Store

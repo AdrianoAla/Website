@@ -20,5 +20,8 @@
         "watch": "cd builder && yarn run watch:tunnel",
         "mkt": "module=MarketingWebsite yarn build:dev",
         "mkt:prod": "module=MarketingWebsite yarn build:prod"
+    },
+    "dependencies": {
+        "polished": "^4.2.2"
     }
 }

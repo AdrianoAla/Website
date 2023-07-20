@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SafeHtml, Image, Link } from '@uniwebcms/module-sdk'
 
-export default function Customizes({block, profile}) {
+export default function Customizes({block, profile, website}) {
 
     const {main, items} = block;
 
@@ -60,7 +60,7 @@ export default function Customizes({block, profile}) {
                   <div><SafeHtml value={feature.name}/></div>
                 </dt>
                 <dd className="mt-1 text-base leading-7 text-gray-600"><SafeHtml value={feature.description} /></dd>
-                {feature.link && <Link to={feature.link.href} ><dd className="mt-2 text-base leading-7 text-gray-600">{feature.link.label}</dd></Link>}
+                {feature.link && <Link to={website.makeHref(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600">{feature.link.label}</dd></Link>}
               </div>
             ))}
           </dl>
@@ -81,7 +81,7 @@ export default function Customizes({block, profile}) {
       </div>
       {main.body?.links[0] && 
         <center>
-          <Link to={main.body.links[0].href} >
+          <Link to={website.makeHref(main.body.links[0].href)} >
             <button 
               className="px-6 py-3 mt-24 text-lg font-semibold text-center text-white transition-all duration-300 bg-indigo-800 border border-white rounded-full hover:shadow-2xl hover:bg-white hover:text-black hover:border-black">
                 <SafeHtml value={main.body.links[0].label} />
@@ -126,7 +126,7 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
                   {feature.name}
                 </dt>
                 <dd className="mt-2 text-base leading-7 text-gray-600">{feature.description}</dd>
-                {feature.link && <Link to={feature.link.href} ><dd className="mt-2 text-base leading-7 text-gray-600">{feature.link.label}</dd></Link>}
+                {feature.link && <Link to={website.makeHref(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600">{feature.link.label}</dd></Link>}
               </div>
             ))}
           </dl>
@@ -134,7 +134,7 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
       </div>
       {main.body?.links[0] && 
         <center>
-          <Link to={main.body.links[0].href} >
+          <Link to={website.makeHref(main.body.links[0].href)} >
             <button 
               className="px-6 py-3 mt-24 text-lg font-semibold text-center text-white transition-all duration-300 bg-indigo-800 border border-white rounded-full hover:shadow-2xl hover:bg-white hover:text-black hover:border-black">
                 <SafeHtml value={main.body.links[0].label} />
