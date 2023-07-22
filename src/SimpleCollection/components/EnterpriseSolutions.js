@@ -41,7 +41,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
 
 
   return (
-    <div className="bg-white">
+    <div className={`${block.theme} bg-[var(--primary)]`}>
       {/* Header */}
       <div className="relative pb-32 bg-gray-800">
         <div className="absolute inset-0">
@@ -54,9 +54,9 @@ export default function EnterpriseSolutions({block, profile, website}) {
         </div>
         <div className={`relative flex flex-col px-6 py-24 mx-auto max-w-7xl sm:py-32 lg:px-8 text-${alignment} ${align_items}`}>
           <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl"><SafeHtml value={title}/></h1>
-          <p className="max-w-3xl mt-6 text-xl text-gray-300">
+          <h2 className="max-w-3xl mt-6 text-xl text-gray-300">
             <SafeHtml value={subtitle} />
-          </p>
+          </h2>
         </div>
       </div>
 
@@ -67,9 +67,9 @@ export default function EnterpriseSolutions({block, profile, website}) {
         </h2>
         <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
           {supportLinks.map((link) => (
-            <div key={link.name} className="flex flex-col bg-white shadow-xl rounded-2xl">
+            <div key={link.name} className="flex flex-col bg-[var(--primary)] shadow-2xl rounded-2xl">
               <div className="relative flex-1 px-6 pt-16 pb-8 md:px-8">
-                <div className="absolute top-0 inline-block p-5 transform -translate-y-1/2 bg-indigo-600 shadow-lg rounded-xl">
+                <div className="absolute top-0 inline-block p-5 transform -translate-y-1/2 bg-[var(--secondary)] shadow-lg rounded-xl">
                   <Image 
                     profile={profile}
                     value={link.icon.value}
@@ -87,7 +87,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
                     </ul>
                 </div>
               </div>
-              <div className="p-6 rounded-bl-2xl rounded-br-2xl bg-gray-50 md:px-8">
+              <div className="p-6 rounded-bl-2xl rounded-br-2xl md:px-8" style={{backgroundColor: "color-mix(in lch, var(--primary) 95%, var(--on_primary) 5%)"}}>
                 <span className="text-base font-medium text-indigo-700 hover:text-indigo-600">
                   <Link
                     to={`${website.makeHref(link.CTA.href)}`}

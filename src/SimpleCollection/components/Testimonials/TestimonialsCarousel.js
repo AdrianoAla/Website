@@ -11,8 +11,9 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
     const [current, setCurrent] = useState(0);
 
     return (
-        <>
+        <div className={`${block.theme}`}>
             <div className={`relative hidden lg:block min-h-[${bgHeight}rem]`}>
+                
                 {block.main.banner && <div className="absolute inset-0">
                     <Image
                         profile={profile}
@@ -21,18 +22,24 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         className="object-cover w-full h-full"
                     />
                 </div>}
-                <div className="flex flex-row justify-end align-centre min-h-[45rem] items-center">
-                    <div className={twMerge(`z-40 flex mr-24 h-[${islandHeight}rem] min-h-[${islandHeight}rem]`)} style={{height: `${islandHeight}rem`}}>
+                <div className="flex flex-row justify-center align-centre min-h-[45rem] items-center">
+                    
+                    <div className="relative z-40 flex flex-col items-center justify-center max-w-1/2 py-4 bg-[var(--primary)] mx-24 rounded-xl">
+                        <h1 className="px-4 text-5xl font-bold"><SafeHtml value={block.main?.header?.title}/></h1>
+                        <h2 className="px-4 text-2xl"><SafeHtml value={block.main?.header?.subtitle}/></h2>
+                    </div>
+
+                    <div className={twMerge(`z-40 flex mr-24 h-[${islandHeight}rem] min-h-[${islandHeight}rem] max-w-1/2`)} style={{height: `${islandHeight}rem`}}>
                         
 
                         <button 
-                            className={`h-[${islandHeight}rem] w-[4rem] rounded-l-[4rem] bg-white transition-all hover:bg-gray-300`}
+                            className={`h-[${islandHeight}rem] w-[4rem] rounded-l-[4rem] bg-[var(--primary)] transition-all hover:scale-105`}
                             onClick={() => setCurrent(current === 0 ? testimonials.length - 1 : current - 1)}
                         >
                             &larr;
                         </button>
 
-                        <div className={`w-[40rem] min-h-[${islandHeight}rem] bg-white flex flex-row`}>
+                        <div className={`w-[40rem] min-h-[${islandHeight}rem] bg-[var(--primary)] flex flex-row`}>
                             
 
                             <div className="flex flex-col justify-between px-8 pt-16 pb-6 mx-4">
@@ -66,7 +73,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                                             className="w-16 h-16 rounded-full"
                                         />
                                         <div className="mx-4">
-                                            <h1 className="text-xl font-bold font-inter"><SafeHtml value={testimonials[current].name}/></h1>
+                                            <h2 className="text-xl font-bold font-inter"><SafeHtml value={testimonials[current].name} as="h2" /></h2>
                                         </div>
                                     </div>
                                 </div>
@@ -90,13 +97,15 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         </div>
                         
                         <button 
-                            className={`h-[${islandHeight}rem] w-[4rem] rounded-r-[4rem] bg-white transition-all hover:bg-gray-300`}
+                            className={`h-[${islandHeight}rem] w-[4rem] rounded-r-[4rem] bg-[var(--primary)] transition-all hover:scale-105`}
                             onClick={() => setCurrent(current === testimonials.length - 1 ? 0 : current + 1)}
                         >
                             &rarr;
                         </button>
                         
                     </div>
+
+                    
                 </div>
             </div>
 
@@ -111,7 +120,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                 <div id="scrollable" className="grid grid-flow-col overflow-y-auto overscroll-x-contain snap-mandatory snap-always snap-x">
                     {testimonials.map((testimonial, index) => (
                         <>
-                            <div className={`w-[90vw] h-[23rem] snap-center p-8 mx-2 bg-white rounded-3xl shadow-2xl border flex snap-always flex-col justify-between`}>
+                            <div className={`w-[90vw] h-[23rem] snap-center p-8 mx-2 bg-[var(--primary)] rounded-3xl shadow-2xl border flex snap-always flex-col justify-between`}>
                                 <div>
                                     <Image 
                                       profile={profile}
@@ -121,7 +130,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                                     />
                                 </div>
                                 <div>
-                                    <h3 className="text-gray-800 text-md line-clamp-3"><SafeHtml value={testimonial.quote}/></h3>
+                                    <h1 className="text-gray-800 text-md line-clamp-3"><SafeHtml value={testimonial.quote}/></h1>
                                 </div>
                                 <div className="flex flex-row items-center">
                                     <Image
@@ -131,9 +140,9 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                                         className="w-12 h-12 rounded-full"
                                     />
                                     <div className="px-2">
-                                        <h3 className="text-sm">
-                                        <SafeHtml value={testimonial.name}/>
-                                        </h3>
+                                        <h2 className="text-sm">
+                                            <SafeHtml value={testimonial.name}/>
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +151,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

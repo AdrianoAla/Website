@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeHtml, Image} from '@uniwebcms/module-sdk'
 
-export default function Newsletter({block, profile, website}) {
+export default function Form({block, profile, website}) {
 
     const {title, subtitle, description} = block.main.header;
     const [width, setWidth] = useState(window.innerWidth);
@@ -12,7 +12,7 @@ export default function Newsletter({block, profile, website}) {
     window.onresize = () => { setWidth(window.innerWidth); };
 
     return (
-      <div className="bg-white">
+      <div className={`${block.theme} bg-[var(--primary)]`}>
         <div className="flex flex-col px-6 py-24 mx-auto max-w-7xl sm:items-center lg:flex-row lg:py-32 lg:px-8">
           
           {(image && left_align || (image && window.innerWidth < 1024)) &&
@@ -41,13 +41,13 @@ export default function Newsletter({block, profile, website}) {
                 type="email"
                 autoComplete="email"
                 required
-                className="w-full px-5 py-3 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 sm:max-w-xs"
+                className="w-full px-5 py-3 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm sm:max-w-xs"
                 placeholder="Enter your email"
               />
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-[var(--on\_secondary)] transition-all bg-[var(--secondary)] border border-transparent rounded-md hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)]"
                   onClick={(e) => {
                     e.preventDefault();
                     website.submitWebsiteForm('newsletter', {email}).then((res) => {

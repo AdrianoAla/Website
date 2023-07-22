@@ -23,13 +23,13 @@ export default function List({block, profile, website}) {
     return {
       subtitle: item?.header?.subtitle || "",
       description: item?.header?.description || "",
-      link: item?.body?.links[0] || null,
+      link: item?.body?.links?.[0] || null,
       image: item?.banner || null,
     }
   })
   
   return (
-    <div className="py-24 bg-white sm:py-32">
+    <div className={`py-24 bg-[var(--primary)] sm:py-32 ${block.theme}`}>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><SafeHtml value={title}/></h2>
@@ -51,12 +51,16 @@ export default function List({block, profile, website}) {
                 <div>
                   <div className="relative max-w-xl group">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                      <Link to={website.makeHref(post.link?.href) || ""}>
+                      {post.link ? <Link to={website.makeHref(post.link?.href) || ""}>
                         <span className="absolute inset-0" />
-                        {post.subtitle}
-                      </Link>
+                        <SafeHtml value={post.subtitle} as='h3' />
+                      </Link> : 
+                      <>
+                        <span className="absolute inset-0" />
+                        <SafeHtml value={post.subtitle} as='h3' />
+                      </>}
                     </h3>
-                    <p className="mt-5 text-sm leading-6 text-gray-600">{post.description}</p>
+                    <p className="mt-5 text-sm leading-6"><SafeHtml value={post.description} /></p>
                   </div>
                   {/* <div className="flex pt-6 mt-6 border-t border-gray-900/5">
                     <div className="relative flex items-center gap-x-4">

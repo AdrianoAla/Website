@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { SafeHtml } from '@uniwebcms/module-sdk'
 
 /* This example requires Tailwind CSS v3.0+ */  
-export default function (props) {
+export default function Details(props) {
     const { main, items } = props.block;
 
     const { title, subtitle, alignment } = items[0].header;
@@ -37,15 +37,15 @@ export default function (props) {
               <dl className="space-y-10">
                 {infos.map((faq) => (
                   <div key={faq.title }>
-                    <dt className="text-base font-semibold leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={faq.title}/></dt>
-                    <dd className="mt-2 text-base leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={faq.subtitle}/></dd>
+                    <dt className="text-base font-semibold leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={faq.title} as="h1"/></dt>
+                    <dd className="mt-2 text-base leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={faq.subtitle} as="h2"/></dd>
                   </div>
                 ))}
               </dl>
             </div>
             {!leftAlign && <div className="lg:col-span-5">
-            <h2 className="text-2xl font-bold leading-10 tracking-tight !text-[var(--on\_primary)]"><SafeHtml value={title}/></h2>
-              <p className="mt-4 text-base leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={subtitle}/></p>
+              <h3 className="text-2xl font-bold leading-10 tracking-tight !text-[var(--on\_primary)]"><SafeHtml value={title}/></h3>
+              <p className="mt-4 text-base leading-7 !text-[var(--on\_primary)]" ><SafeHtml value={subtitle} /></p>
             </div>}
           </div>
         </div>
@@ -57,23 +57,25 @@ export default function (props) {
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
-function CenterAligned(title, subtitle, faqs, b) {
+function CenterAligned(title, subtitle, faqs, block) {
+
+
   return (
-    <div className={`${b.theme} !bg-[var(--primary)] `}>
+    <div className={`${block.theme} !bg-[var(--primary)] `}>
       <div className="px-6 py-24 mx-auto max-w-7xl sm:py-32 lg:px-8 lg:py-40">
-        <div className="max-w-4xl mx-auto divide-y !divide-[var(--on\_primary)]">
+        <div className="max-w-4xl mx-auto">
           <div>
-            <h2 className="text-2xl font-bold leading-10 !text-[var(--on\_primary)]"><SafeHtml value={title}/></h2>
-            <h3 className="text-lg leading-8 !text-[var(--on\_primary)]"><SafeHtml value={subtitle}/></h3>
+            <h1 className="text-2xl font-bold leading-10 !text-[var(--on\_primary)]"><SafeHtml value={title}/></h1>
+            <h2 className="text-lg leading-8 !text-[var(--on\_primary)]"><SafeHtml value={subtitle}/></h2>
           </div>
-          <dl className="mt-10 space-y-6 divide-y !divide-[var(--on\_primary)]">
+          <dl className="mt-10 space-y-6">
             {faqs.map((faq) => (
-              <Disclosure as="div" key={faq.title} className="pt-6">
+              <Disclosure as="div" key={faq.title} className="pt-6 border-t-[1px] " style={{borderColor: `color-mix(in srgb, var(--on_primary) 40%, var(--primary))`}}>
                 {({ open }) => (
                   <>
                     <dt>
-                      <Disclosure.Button className="flex items-start justify-between w-full text-left  !text-[var(--on\_primary)]">
-                        <span className="text-base font-semibold leading-7"><SafeHtml value={faq.title}/></span>
+                      <Disclosure.Button className="flex items-start justify-between w-full text-left !text-[var(--on\_primary)]" >
+                        <h3 className="text-base font-semibold leading-7"><SafeHtml value={faq.title}/></h3>
                         <span className="flex items-center ml-6 h-7">
                           {open ? (
                             <MinusSmallIcon className="w-6 h-6" aria-hidden="true" />

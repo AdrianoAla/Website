@@ -8,3 +8,11 @@
         drop-shadow(0px 1px 0 white) 
          drop-shadow(1px 0px 0 white);
 }
+
+.logoCloudImage {
+  background-color: color-mix(in srgb, var(--primary) 95%, var(--on_primary) 5%);
+}
+
+.logoCloudImage:hover {
+  background-color: color-mix(in srgb, var(--on_primary) 95%, var(--primary) 5%);
+}

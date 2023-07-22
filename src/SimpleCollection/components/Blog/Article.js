@@ -4,7 +4,7 @@ import { getComponent, useGetProfile } from '@uniwebcms/module-sdk';
 
 const Editor = getComponent(null, 'ArticleEditor');
 
-export default function ({ website }) {
+export default function ({ website, block }) {
 
     const { Link, useParams} = website.routingComponents;
     const activeLang = website.getLanguage();
@@ -60,9 +60,10 @@ export default function ({ website }) {
     return (
         <>
             <AuthorBar profile={articleProfile} Link={Link}></AuthorBar>
-            <div className='relative flex w-screen max-w-full min-h-screen bg-white justify-enda'>
+            <div className={`relative flex w-screen max-w-full min-h-screen bg-[var(--primary)] justify-end ${block.theme}`}>
                 <div className='static top-0 left-0 w-screen max-w-full pt-8 pb-20 mx-auto'>
                     <Suspense fallback={''}>
+                        {/* Todo: find solution to this problem */}
                         <Editor
                             assetsInfo={info?.assetsInfo}
                             value={info?.initData?.[activeLang]}

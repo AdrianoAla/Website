@@ -1,11 +1,11 @@
 // import local components
-import Newsletter from './components/Newsletter';
-import HeroBanner from './components/HeroBanner/HeroBanner'
-import Features from './components/FAQ'
+import Form from './components/Form/Form';
+import Hero from './components/HeroBanner/Hero'
+import Details from './components/Details'
+import Features from './components/Features';
 import Timeline from './components/Timeline'
-import HighlightedFeatures from './components/HighlightedFeatures'
+import Spotlight from './components/Spotlight'
 import Testimonials from './components/Testimonials/Testimonials';
-import Customize from './components/Customize';
 import Solutions from './components/Solutions';
 import EnterpriseSolutions from './components/EnterpriseSolutions';
 import Blog from './components/Blog/Blog' ;
@@ -14,6 +14,7 @@ import PageHeader from './components/PageHeader';
 import PageFooter from './components/PageFooter'
 import List from './components/List'
 import CTA from './components/CTA'
+import PowerFeatures from './components/PowerFeatures';
 import Block from './components/Block'
 
 // Import the express library
@@ -22,13 +23,14 @@ import * as expressModule from '@uniwebcms/express'; // See README for more deta
 import './index.css';
 
 export default {
-    Newsletter,
-    HeroBanner,
+    Form,
+    Hero,
+    Details,
     Features,
     Timeline,
-    HighlightedFeatures,
+    Spotlight,
     Testimonials,
-    Customize,
+    Features,
     Solutions, 
     EnterpriseSolutions,
     Blog,
@@ -38,4 +40,5 @@ export default {
     List,
     CTA,
     Block,
+    PowerFeatures,
 };

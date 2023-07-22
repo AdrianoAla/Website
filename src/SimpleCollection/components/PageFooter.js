@@ -24,7 +24,7 @@ export default function PageFooter(props) {
     const copyright = params?.copyright || `© ${year} ${title}. ${reservedText}`;
 
     return (
-        <footer className={twJoin('!py-10 px-8', theme)}>
+        <footer className={`!py-10 px-8 ${theme}  bg-[var(--primary)]`}>
             <h3 className='text-sm'>{copyright}</h3>
             <div className='flex flex-wrap mt-5'>
                 {pages.map((page, index) => {

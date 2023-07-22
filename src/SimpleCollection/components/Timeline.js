@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeHtml, Image} from '@uniwebcms/module-sdk'
+import {SafeHtml, Image, twMerge} from '@uniwebcms/module-sdk'
 
 
 function classNames(...classes) {
@@ -25,7 +25,7 @@ export default function StepsTimeline({block, profile}) {
     })
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full">
+    <div className={twMerge(`relative flex flex-col items-center justify-center w-full ${block.theme}`, !main.banner && "bg-[var(--primary)]")}>
         {/* background image */}
         {main.banner && <div className="absolute inset-0 w-full h-full -z-10">
             <Image
@@ -35,9 +35,9 @@ export default function StepsTimeline({block, profile}) {
                 className="object-cover w-full h-full"
             />
         </div>}
-        <p className='mx-2 mt-16 mb-2 text-lg text-center text-gray-500' ><SafeHtml value={subheading}/></p>
+        <h2 className='mx-2 mt-16 mb-2 text-lg text-center text-gray-500' ><SafeHtml value={subheading}/></h2>
         <h1 className='mx-2 mb-4 text-4xl font-bold text-center sm:text-left'><SafeHtml value={title}/></h1>
-        <p className='mx-2 mb-8 text-lg text-center text-gray-500' ><SafeHtml value={subtitle}/></p>
+        <h2 className='mx-2 mb-8 text-lg text-center text-gray-500' ><SafeHtml value={subtitle}/></h2>
         <div className=" lg:border-gray-200 mb-[-3rem] w-[100%] z-10 max-w-7xl">
             <nav aria-label="Progress">
                 <ol
@@ -45,7 +45,7 @@ export default function StepsTimeline({block, profile}) {
                 className="overflow-hidden rounded-sm lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"
                 >
                 {steps.map((step, stepIdx) => (
-                    <li key={step.id} className="relative overflow-hidden bg-white border-t border-b lg:flex-1">
+                    <li key={step.id} className="relative overflow-hidden bg-[var(--primary)] lg:flex-1 border-t border-b">
                     <div
                         className={classNames(
                         stepIdx === 0 ? 'border-b-0 rounded-t-md' : '',
@@ -56,23 +56,19 @@ export default function StepsTimeline({block, profile}) {
                         
                         <a className="group">
                         <span
-                            className="absolute top-0 left-0 w-1 h-full bg-transparent group-hover:bg-gray-200 lg:bottom-0 lg:top-auto lg:h-1 lg:w-full"
-                            aria-hidden="true"
-                        />
-                        <span
                             className={classNames(
                             stepIdx !== 0 ? 'lg:pl-9' : '',
                             'px-6 py-5 flex items-start text-sm font-medium'
                             )}
                         >
                             <span className="flex-shrink-0">
-                            <span className="flex items-center justify-center w-10 h-10 border-2 border-indigo-600 rounded-full">
-                                <span className="text-indigo-600"><SafeHtml value={step.id+1}/></span>
-                            </span>
+                            <div className="flex items-center justify-center w-10 h-10 border-2 border-[var(--secondary)] rounded-full">
+                                <div><SafeHtml className="!text-[var(--secondary)]" value={step.id+1}/></div>
+                            </div>
                             </span>
                             <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
-                            <span className="text-xs font-medium text-indigo-600"><SafeHtml value={step.name}/></span>
-                            <span className="text-sm font-medium text-gray-500"><SafeHtml value={step.description}/></span>
+                                <h3 className="text-xs font-medium text-indigo-600"><SafeHtml value={step.name}/></h3>
+                                <p className="text-sm font-medium text-gray-500"><SafeHtml value={step.description}/></p>
                             </span>
                         </span>
                         </a>
