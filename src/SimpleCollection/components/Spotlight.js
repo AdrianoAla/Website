@@ -29,7 +29,7 @@ export default function Spotlight({block, profile, page, website}) {
 
 
     return (
-    <div className={`${block.theme} pt-24  bg-[var(--primary)]`}>
+    <div className={`${block.theme} pt-24  bg-primary-100`}>
     {features.map((feature) => {
       return (
         <div className={` py-24 overflow-hidden`}>
@@ -52,7 +52,7 @@ export default function Spotlight({block, profile, page, website}) {
                       profile={profile}
                       value={feature.icon.value}
                       alt={feature.icon.alt}
-                      className="w-12 h-12 p-3 bg-[var(--secondary)] rounded-md"
+                      className="w-12 h-12 p-3 rounded-md bg-secondary-100 text-secondary-0"
                     />
                   )}
                   <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" ><SafeHtml value={feature.name} as="h1"/></p>
@@ -63,7 +63,7 @@ export default function Spotlight({block, profile, page, website}) {
                     {feature.button && 
                       <Link
                         to={website.makeHref(feature.button.href)}
-                        className="inline-flex rounded-md bg-[var(--secondary)] px-3.5 py-1.5 text-base font-semibold leading-7 text-[var(--on\_secondary)] shadow-sm hover:bg-[var(--secondary)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--secondary)]"
+                        className="inline-flex rounded-md bg-secondary-100 px-3.5 py-1.5 text-base font-semibold leading-7 text-secondary-0 shadow-sm hover:bg-secondary-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-100"
                       >
                         <SafeHtml value={feature.button.label} as="span"/>
                       </Link>

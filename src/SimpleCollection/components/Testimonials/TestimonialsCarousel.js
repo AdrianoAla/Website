@@ -19,12 +19,12 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         profile={profile}
                         value={block.main.banner.value}
                         alt={block.main.banner.alt}
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full text-primary-0"
                     />
                 </div>}
                 <div className="flex flex-row justify-center align-centre min-h-[45rem] items-center">
                     
-                    <div className="relative z-40 flex flex-col items-center justify-center max-w-1/2 py-4 bg-[var(--primary)] mx-24 rounded-xl">
+                    <div className="relative z-40 flex flex-col items-center justify-center py-4 mx-24 max-w-1/2 bg-primary-100 rounded-xl">
                         <h1 className="px-4 text-5xl font-bold"><SafeHtml value={block.main?.header?.title}/></h1>
                         <h2 className="px-4 text-2xl"><SafeHtml value={block.main?.header?.subtitle}/></h2>
                     </div>
@@ -33,13 +33,13 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         
 
                         <button 
-                            className={`h-[${islandHeight}rem] w-[4rem] rounded-l-[4rem] bg-[var(--primary)] transition-all hover:scale-105`}
+                            className={`h-[${islandHeight}rem] w-[4rem] rounded-l-[4rem] bg-primary-100 transition-all hover:scale-105`}
                             onClick={() => setCurrent(current === 0 ? testimonials.length - 1 : current - 1)}
                         >
                             &larr;
                         </button>
 
-                        <div className={`w-[40rem] min-h-[${islandHeight}rem] bg-[var(--primary)] flex flex-row`}>
+                        <div className={`w-[40rem] min-h-[${islandHeight}rem] bg-primary-100 flex flex-row`}>
                             
 
                             <div className="flex flex-col justify-between px-8 pt-16 pb-6 mx-4">
@@ -57,7 +57,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                                         </div>
 
                                         <div className="mb-8">
-                                            <svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg" className=" translate-x-[-2rem] translate-y-6 opacity-70">
+                                            <svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg" className=" translate-x-[-2rem] translate-y-6 opacity-70 text-secondary-80">
                                                 <path d="M8.352 0C3.456 3.456 0 9.12 0 15.36C0 20.448 3.072 23.424 6.624 23.424C9.984 23.424 12.48 20.736 12.48 17.568C12.48 14.4 10.272 12.096 7.392 12.096C6.816 12.096 6.048 12.192 5.856 12.288C6.336 9.024 9.408 5.184 12.48 3.264L8.352 0ZM24.864 0C20.064 3.456 16.608 9.12 16.608 15.36C16.608 20.448 19.68 23.424 23.232 23.424C26.496 23.424 29.088 20.736 29.088 17.568C29.088 14.4 26.784 12.096 23.904 12.096C23.328 12.096 22.656 12.192 22.464 12.288C22.944 9.024 25.92 5.184 28.992 3.264L24.864 0Z" fill="#4F46E5"/>
                                             </svg>
 
@@ -97,7 +97,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         </div>
                         
                         <button 
-                            className={`h-[${islandHeight}rem] w-[4rem] rounded-r-[4rem] bg-[var(--primary)] transition-all hover:scale-105`}
+                            className={`h-[${islandHeight}rem] w-[4rem] rounded-r-[4rem] bg-primary-100 transition-all hover:scale-105`}
                             onClick={() => setCurrent(current === testimonials.length - 1 ? 0 : current + 1)}
                         >
                             &rarr;
@@ -120,13 +120,13 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                 <div id="scrollable" className="grid grid-flow-col overflow-y-auto overscroll-x-contain snap-mandatory snap-always snap-x">
                     {testimonials.map((testimonial, index) => (
                         <>
-                            <div className={`w-[90vw] h-[23rem] snap-center p-8 mx-2 bg-[var(--primary)] rounded-3xl shadow-2xl border flex snap-always flex-col justify-between`}>
+                            <div className={`w-[90vw] h-[23rem] snap-center p-8 mx-2 bg-primary-100 rounded-3xl shadow-2xl border flex snap-always flex-col justify-between`}>
                                 <div>
                                     <Image 
                                       profile={profile}
                                       value={testimonial.company.value}
                                       alt={testimonial.company.alt}
-                                      className="object-contain h-12"
+                                      className="object-contain h-12 text-primary-0"
                                     />
                                 </div>
                                 <div>

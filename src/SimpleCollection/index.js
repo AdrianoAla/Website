@@ -23,6 +23,7 @@ import * as expressModule from '@uniwebcms/express'; // See README for more deta
 import './index.css';
 
 export default {
+    ...expressModule,
     Form,
     Hero,
     Details,
@@ -41,4 +42,5 @@ export default {
     CTA,
     Block,
     PowerFeatures,
+    
 };

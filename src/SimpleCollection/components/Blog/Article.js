@@ -60,7 +60,7 @@ export default function ({ website, block }) {
     return (
         <>
             <AuthorBar profile={articleProfile} Link={Link}></AuthorBar>
-            <div className={`relative flex w-screen max-w-full min-h-screen bg-[var(--primary)] justify-end ${block.theme}`}>
+            <div className={`relative flex w-screen max-w-full min-h-screen bg-primary-100 justify-end ${block.theme}`}>
                 <div className='static top-0 left-0 w-screen max-w-full pt-8 pb-20 mx-auto'>
                     <Suspense fallback={''}>
                         {/* Todo: find solution to this problem */}

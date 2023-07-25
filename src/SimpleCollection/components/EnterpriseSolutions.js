@@ -41,7 +41,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
 
 
   return (
-    <div className={`${block.theme} bg-[var(--primary)]`}>
+    <div className={`${block.theme} bg-primary-100`}>
       {/* Header */}
       <div className="relative pb-32 bg-gray-800">
         <div className="absolute inset-0">
@@ -67,9 +67,9 @@ export default function EnterpriseSolutions({block, profile, website}) {
         </h2>
         <div className="grid grid-cols-1 gap-y-20 lg:grid-cols-2 lg:gap-y-0 lg:gap-x-8">
           {supportLinks.map((link) => (
-            <div key={link.name} className="flex flex-col bg-[var(--primary)] shadow-2xl rounded-2xl">
+            <div key={link.name} className="flex flex-col shadow-2xl bg-primary-100 rounded-2xl">
               <div className="relative flex-1 px-6 pt-16 pb-8 md:px-8">
-                <div className="absolute top-0 inline-block p-5 transform -translate-y-1/2 bg-[var(--secondary)] shadow-lg rounded-xl">
+                <div className="absolute top-0 inline-block p-5 transform -translate-y-1/2 shadow-lg bg-secondary-100 rounded-xl">
                   <Image 
                     profile={profile}
                     value={link.icon.value}
@@ -87,7 +87,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
                     </ul>
                 </div>
               </div>
-              <div className="p-6 rounded-bl-2xl rounded-br-2xl md:px-8" style={{backgroundColor: "color-mix(in lch, var(--primary) 95%, var(--on_primary) 5%)"}}>
+              <div className="p-6 rounded-bl-2xl rounded-br-2xl md:px-8 bg-primary-95">
                 <span className="text-base font-medium text-indigo-700 hover:text-indigo-600">
                   <Link
                     to={`${website.makeHref(link.CTA.href)}`}

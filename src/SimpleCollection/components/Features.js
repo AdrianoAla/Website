@@ -29,7 +29,7 @@ export default function Features({block, profile, website}) {
   if (alignment == "center") return centerAlign(block, profile, features, subheading, title, subtitle);
 
   return (
-    <div className={`py-24 bg-[var(--primary)] sm:py-32 ${block.theme}`}>
+    <div className={`py-24 bg-primary-100 sm:py-32 ${block.theme}`}>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {alignment == "left" && 
@@ -49,12 +49,12 @@ export default function Features({block, profile, website}) {
             {features.map((feature) => (
               <div key={feature.name}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="flex items-center justify-center w-10 h-10 mb-6 bg-[var(--secondary)] rounded-lg">
+                  <div className="flex items-center justify-center w-10 h-10 mb-6 rounded-lg bg-secondary-100">
                     <Image 
                       profile={profile}
                       value={feature.icon.value}
                       alt={feature.icon.alt}
-                      className="w-6 h-6" 
+                      className="w-6 h-6 text-secondary-0"
                     />
                   </div>
                   <div><SafeHtml value={feature.name} as="h3"/></div>
@@ -83,7 +83,7 @@ export default function Features({block, profile, website}) {
         <center>
           <Link to={website.makeHref(main.body.links[0].href)} >
             <button 
-                className="px-6 py-3 mt-24 text-lg font-semibold text-center text-[var(--on\_secondary)] transition-all duration-300 bg-[var(--secondary)] border border-[var(--on\_secondary)] rounded-full hover:shadow-2xl hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)] hover:border-[var(--secondary)]">
+                className="px-6 py-3 mt-24 text-lg font-semibold text-center transition-all duration-300 border rounded-full text-secondary-0 bg-secondary-100 border-secondary-0 hover:shadow-2xl hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100">
                 <SafeHtml value={main.body.links[0].label} className="text-inherit"/>
               </button>
             </Link>
@@ -97,7 +97,7 @@ export default function Features({block, profile, website}) {
 const centerAlign = (block, profile, features, subheading, title, subtitle) => {
   const main = block.main;
  return (
-    <div className={`py-24 bg-[var(--primary)] sm:py-32 ${block.theme}`}>
+    <div className={`py-24 bg-primary-100 sm:py-32 ${block.theme}`}>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:text-center">
           {subheading && <h2 className="text-base font-semibold leading-7 text-indigo-600">
@@ -115,12 +115,12 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute top-0 left-0 flex items-center justify-center w-10 h-10 bg-[var(--secondary)] rounded-lg">
+                  <div className="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-100">
                     <Image 
                       profile={profile}
                       value={feature.icon.value}
                       alt={feature.icon.alt}
-                      className="w-6 h-6" 
+                      className="w-6 h-6 text-secondary-0" 
                     />
                   </div>
                   <SafeHtml value={feature.name} as="h3"/>
@@ -136,7 +136,7 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
         <center>
           <Link to={website.makeHref(main.body.links[0].href)} >
             <button 
-              className="px-6 py-3 mt-24 text-lg font-semibold text-center text-[var(--on\_secondary)] transition-all duration-300 bg-[var(--secondary)] border border-[var(--on\_secondary)] rounded-full hover:shadow-2xl hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)] hover:border-[var(--secondary)]">
+              className="px-6 py-3 mt-24 text-lg font-semibold text-center transition-all duration-300 border rounded-full text-secondary-0 bg-secondary-100 border-secondary-0 hover:shadow-2xl hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100">
                 <SafeHtml value={main.body.links[0].label} className="text-inherit"/>
               </button>
             </Link>

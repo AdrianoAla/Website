@@ -12,7 +12,7 @@ export default function Form({block, profile, website}) {
     window.onresize = () => { setWidth(window.innerWidth); };
 
     return (
-      <div className={`${block.theme} bg-[var(--primary)]`}>
+      <div className={`${block.theme} bg-primary-100`}>
         <div className="flex flex-col px-6 py-24 mx-auto max-w-7xl sm:items-center lg:flex-row lg:py-32 lg:px-8">
           
           {(image && left_align || (image && window.innerWidth < 1024)) &&
@@ -47,7 +47,7 @@ export default function Form({block, profile, website}) {
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-[var(--on\_secondary)] transition-all bg-[var(--secondary)] border border-transparent rounded-md hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)]"
+                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-secondary-0 transition-all bg-secondary-100 border border-transparent rounded-md hover:bg-secondary-0 hover:text-secondary-100"
                   onClick={(e) => {
                     e.preventDefault();
                     website.submitWebsiteForm('newsletter', {email}).then((res) => {

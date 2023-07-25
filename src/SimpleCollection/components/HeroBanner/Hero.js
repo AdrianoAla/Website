@@ -11,7 +11,7 @@ import { SafeHtml, twMerge, Image } from '@uniwebcms/module-sdk'
 export default function Hero({block, website, profile}) {
     
 
-    const { title = '', subheading = '', description = '' } = block.main.header;
+    const { title = '', subheading = '', subtitle = '' } = block.main.header;
 
     
     
@@ -27,7 +27,7 @@ export default function Hero({block, website, profile}) {
 
 
   return (
-    <div className={`relative min-h-screen bg-[var(--primary)] ${block.theme}`}>
+    <div className={`relative min-h-screen bg-primary-100 ${block.theme}`}>
       {/* Background image */}
       {block.main?.banner && <div className="absolute inset-0">
         <Image
@@ -37,7 +37,7 @@ export default function Hero({block, website, profile}) {
           className="object-cover w-full h-full"
         />
       </div>}
-      <div className="flex flex-col justify-between mt-12 xl:mt-0 sm:h-full sm:min-h-screen xl:flex-row lg:items-center xl:px-12 2xl:px-32">
+      <div className={twMerge("flex flex-col justify-between mt-12 xl:mt-0 sm:h-full sm:min-h-screen xl:flex-row lg:items-center xl:px-12 2xl:px-32", !videoFacade && "justify-center")}>
         <div className={twMerge("max-w-7xl", !videoFacade && "flex justify-center text-center")}>
           <div className="relative z-10 lg:w-full lg:max-w-2xl">
             <div className="relative px-6 pt-16 pb-8 lg:px-8 lg:pr-0">
@@ -47,12 +47,12 @@ export default function Hero({block, website, profile}) {
                     <p><SafeHtml value={subheading} as="h2"/></p>
                   </div>
                 </div>
-                <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                  <SafeHtml value={title}/>
-                </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600"><SafeHtml value={description} as="h2"/></p>
-                {prompt && <div className="flex flex-col mt-10 align-middle">
-                  <p className='mb-2'><SafeHtml value={prompt}/></p>
+                  <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                    <SafeHtml value={title}/>
+                  </h1>
+                  <p className="mt-6 text-lg leading-8 text-gray-600"><SafeHtml value={subtitle} as="h2"/></p>
+                  {prompt && <div className="flex flex-col mt-10 align-middle">
+                    <p className='mb-2'><SafeHtml value={prompt}/></p>
                   <div className={twMerge('flex', !videoFacade && 'justify-center')}>
                     <input
                       type="text" 
@@ -68,7 +68,7 @@ export default function Hero({block, website, profile}) {
                     <input
                       type='button' 
                       value='Notify Me' 
-                      className='p-3 px-6 ml-3 text-[var(--on\_secondary)] transition-all bg-[var(--secondary)] border border-[var(--secondary)] rounded-md shadow-sm hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)] hover:border-[var(--secondary)] hover:cursor-pointer' 
+                      className='p-3 px-6 ml-3 text-secondary-0 transition-all bg-secondary-100 border border-secondary-100 rounded-md shadow-sm hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 hover:cursor-pointer' 
                       onClick={() => 
                         website.submitWebsiteForm('newsletter', {email}).then((res) => {
                           console.log(res)

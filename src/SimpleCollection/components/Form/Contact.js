@@ -22,7 +22,7 @@ export default function Contact({block, website}) {
 
 
   return (
-    <div className={` ${block.theme} relative bg-[var(--primary)] isolate`}>
+    <div className={` ${block.theme} relative bg-primary-100 isolate`}>
       <div className="grid grid-cols-1 mx-auto max-w-7xl lg:grid-cols-2">
         {right_align && <Form website={website}/>}
         <div className="relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">
@@ -37,7 +37,7 @@ export default function Contact({block, website}) {
               {address && <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Address</span>
-                  <BuildingOffice2Icon className="w-6 text-[var(--on\_primary)] h-7" aria-hidden="true" />
+                  <BuildingOffice2Icon className="w-6 text-primary-0 h-7" aria-hidden="true" />
                 </dt>
                 <dd>
                   <SafeHtml value={address} />
@@ -46,7 +46,7 @@ export default function Contact({block, website}) {
               {phoneNumbers.length > 0 && <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
-                  <PhoneIcon className="w-6 text-[var(--on\_primary)] h-7" aria-hidden="true" />
+                  <PhoneIcon className="w-6 text-primary-0 h-7" aria-hidden="true" />
                 </dt>
                 <div className='flex flex-col'>
                   {phoneNumbers.map((phoneNumber, index) => {
@@ -63,12 +63,12 @@ export default function Contact({block, website}) {
               {emails.length > 0 && <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Email</span>
-                  <EnvelopeIcon className="w-6 text-[var(--on\_primary)] h-7" aria-hidden="true" />
+                  <EnvelopeIcon className="w-6 text-primary-0 h-7" aria-hidden="true" />
                 </dt>
                 <div className='flex flex-col'>
                   {emails.map(email => 
                     <dd>
-                      <Link to={`mailto:${email.href}`}>
+                      <Link to={`${email.href}`}>
                         <SafeHtml value={email.label}/>
                       </Link>
                     </dd>
@@ -109,7 +109,7 @@ const Form = (props) => {
       <div className="max-w-xl mx-auto lg:mr-0 lg:max-w-lg">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-[var(--on\_primary)]">
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-primary-0">
               First name
             </label>
             <div className="mt-2.5">
@@ -123,7 +123,7 @@ const Form = (props) => {
             </div>
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-[var(--on\_primary)]">
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-primary-0">
               Last name
             </label>
             <div className="mt-2.5">
@@ -137,7 +137,7 @@ const Form = (props) => {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-[var(--on\_primary)]">
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-primary-0">
               Email
             </label>
             <div className="mt-2.5">
@@ -151,7 +151,7 @@ const Form = (props) => {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-[var(--on\_primary)]">
+            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-primary-0">
               Phone number
             </label>
             <div className="mt-2.5">
@@ -165,7 +165,7 @@ const Form = (props) => {
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-[var(--on\_primary)]">
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-primary-0">
               Message
             </label>
             <div className="mt-2.5">
@@ -182,7 +182,7 @@ const Form = (props) => {
         <div className="flex justify-end mt-8">
           <button
             type="submit"
-            className="rounded-md bg-[var(--secondary)] px-3.5 py-2.5 text-center text-sm font-semibold text-[var(--on\_secondary)] shadow-sm hover:bg-[var(--on\_secondary)] hover:text-[var(--secondary)] hover:border-[var(--secondary)] transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-secondary-100 px-3.5 py-2.5 text-center text-sm font-semibold text-secondary-0 shadow-sm hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Send message
           </button>

@@ -25,7 +25,7 @@ export default function StepsTimeline({block, profile}) {
     })
 
   return (
-    <div className={twMerge(`relative flex flex-col items-center justify-center w-full ${block.theme}`, !main.banner && "bg-[var(--primary)]")}>
+    <div className={twMerge(`relative flex flex-col items-center justify-center w-full ${block.theme}`, !main.banner && "bg-primary-100")}>
         {/* background image */}
         {main.banner && <div className="absolute inset-0 w-full h-full -z-10">
             <Image
@@ -38,14 +38,14 @@ export default function StepsTimeline({block, profile}) {
         <h2 className='mx-2 mt-16 mb-2 text-lg text-center text-gray-500' ><SafeHtml value={subheading}/></h2>
         <h1 className='mx-2 mb-4 text-4xl font-bold text-center sm:text-left'><SafeHtml value={title}/></h1>
         <h2 className='mx-2 mb-8 text-lg text-center text-gray-500' ><SafeHtml value={subtitle}/></h2>
-        <div className=" lg:border-gray-200 mb-[-3rem] w-[100%] z-10 max-w-7xl">
+        <div className=" lg:border-text-primary-25 mb-[-3rem] w-[100%] z-10 max-w-7xl">
             <nav aria-label="Progress">
                 <ol
                 role="list"
-                className="overflow-hidden rounded-sm lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"
+                className="overflow-hidden rounded-sm lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-primary-5"
                 >
                 {steps.map((step, stepIdx) => (
-                    <li key={step.id} className="relative overflow-hidden bg-[var(--primary)] lg:flex-1 border-t border-b">
+                    <li key={step.id} className="relative overflow-hidden border-t border-b border-primary-5 bg-primary-100 lg:flex-1">
                     <div
                         className={classNames(
                         stepIdx === 0 ? 'border-b-0 rounded-t-md' : '',
@@ -62,8 +62,8 @@ export default function StepsTimeline({block, profile}) {
                             )}
                         >
                             <span className="flex-shrink-0">
-                            <div className="flex items-center justify-center w-10 h-10 border-2 border-[var(--secondary)] rounded-full">
-                                <div><SafeHtml className="!text-[var(--secondary)]" value={step.id+1}/></div>
+                            <div className="flex items-center justify-center w-10 h-10 border-2 rounded-full border-secondary-75">
+                                <div><SafeHtml className="!text-secondary-75" value={step.id+1}/></div>
                             </div>
                             </span>
                             <span className="mt-0.5 ml-4 flex min-w-0 flex-col">
@@ -78,7 +78,7 @@ export default function StepsTimeline({block, profile}) {
                             {/* Separator */}
                             <div className="absolute inset-0 top-0 left-0 hidden w-3 lg:block" aria-hidden="true">
                             <svg
-                                className="w-full h-full text-gray-300"
+                                className="w-full h-full text-primary-5"
                                 viewBox="0 0 12 82"
                                 fill="none"
                                 preserveAspectRatio="none"

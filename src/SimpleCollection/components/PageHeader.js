@@ -20,18 +20,17 @@ export default function PageHeader({block, website, page, profile}) {
   useEffect(() => {
     const context = page.childBlocks?.[1]?.theme;
     setContext(context);
-  }, [page.childBlocks?.[1]?.theme]);
+  }, [page.activeRoute]);
 
-
-  const banner = block.main.banner;
 
   const activeRoute = page.activeRoute;
-
+  const banner = block.main?.banner;
+  
 
   window.onscroll = function () {
-    if (window.scrollY > 0) {
+    if (window.scrollY > 0 && initialPosition) {
       setIntialPosition(false);
-    } else {
+    } else if (window.scrollY == 0 && !initialPosition) {
       setIntialPosition(true);
     }
   };
@@ -40,20 +39,20 @@ export default function PageHeader({block, website, page, profile}) {
   return (
     <div className={twMerge("absolute top-0 left-0 z-50 flex w-full", !initialPosition && sticky && "fixed", !left_aligned && "justify-center", context)}>
       <div className={twMerge("transition-all duration-300 flex w-fit p-2", 
-                              !initialPosition && sticky && "shadow-2xl bg-[var(--primary)]",
+                              !initialPosition && sticky && "shadow-2xl bg-primary-100",
                               !initialPosition && sticky && !left_aligned && "rounded-xl",
                               left_aligned && "w-full"
       )} id="navbar">
         <nav className="flex items-center justify-between w-full p-8 sm:h-10 lg:justify-start" aria-label="Global">
-          <Image 
+          {banner && <Image 
             profile={profile}
             value={banner.value}
             alt={banner.alt}
             className={"-m-1.5 p-1.5 object-contain w-[50px] h-[50px] pngborder"}
-          />
+          />}
           <button
             type="button"
-            className="-m-2.5 rounded-md p-2.5 text-[var(--on\_primary)] lg:hidden"
+            className="-m-2.5 rounded-md p-2.5 text-primary-0 lg:hidden"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -72,7 +71,7 @@ export default function PageHeader({block, website, page, profile}) {
                           key={index}
                           to={route}
                         >
-                          <p className={'!text-[var(--on\\_primary)] inline-block text-base lg:text-lg font-semibold pr-0.5 hover:scale-125 transition-all duration-300' }>{label}</p>
+                          <p className={'!text-primary-0 inline-block text-base lg:text-lg font-semibold pr-0.5 hover:scale-125 transition-all duration-300' }>{label}</p>
                       </Link>
                   );
                 }
@@ -93,25 +92,15 @@ export default function PageHeader({block, website, page, profile}) {
               </button>
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
-                <Image
+                {banner && <Image
                   profile={profile}
                   value={banner.value}
                   alt={banner.alt}
                   className={`h-8`}
-                />
+                />}
               </a>
             </div>
             <div className="mt-6 space-y-2">
-              {/* {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className=""
-                >
-                  {item.name}
-                </a>
-              ))} */}
-
               {pages.map((page, index) => {
                 if (page.child_items?.length) {
                     return <NavbarMenu key={index} {...page} />;
@@ -140,5 +129,3 @@ export default function PageHeader({block, website, page, profile}) {
   )
 
 }
-
-// active && '!text-[var(--link-active)]'

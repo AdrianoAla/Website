@@ -18,7 +18,7 @@ export default function CTA({block, profile, website}) {
   const link = body?.links[0];
 
   return (
-    <div className={`${block.theme} relative flex flex-col !bg-[var(--primary)] lg:flex-row`}>
+    <div className={`${block.theme} relative flex flex-col !bg-primary-100 lg:flex-row`}>
       {image && ((banner && window.innerWidth >= 1024) || (window.innerWidth < 1024)) &&
         <div className="relative w-full overflow-hidden bg-indigo-600 lg:w-1/2">
           <Image
@@ -42,7 +42,7 @@ export default function CTA({block, profile, website}) {
               <Link
                 to={website.makeHref(link.href)}
               >
-                <span className="inline-flex rounded-md !bg-[var(--secondary)] px-3.5 py-2.5 text-sm font-semibold !text-[var(--on\_secondary)] shadow-sm hover:scale-105 transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                <span className="inline-flex rounded-md !bg-secondary-100 px-3.5 py-2.5 text-sm font-semibold !text-secondary-0 shadow-sm hover:scale-105 transition-all duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                   <SafeHtml value={link.label} />
                 </span>
               </Link>

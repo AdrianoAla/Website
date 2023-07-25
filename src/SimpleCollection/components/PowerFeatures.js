@@ -20,7 +20,7 @@ export default function PowerFeatures({block, profile}) {
     })
 
     return (
-        <div className={`bg-[var(--primary)] ${block.theme}`}>
+        <div className={`bg-primary-100 ${block.theme}`}>
             <div className={` py-16 text-center leading-[2.3rem]`}>
                 <h1 className="my-4 text-4xl font-bold sm:text-5xl sm:font-normal">
                     <SafeHtml value={title} />
@@ -37,7 +37,7 @@ export default function PowerFeatures({block, profile}) {
                                 value={power.image.value}
                                 alt={power.image.alt}
                                 profile={profile}
-                                className="w-24 h-24 p-2 border-4 border-[var(--secondary)] rounded-3xl shadow-md bg-[var(--secondary)] object-contain"
+                                className="object-contain w-24 h-24 p-2 border-4 shadow-md border-secondary-100 rounded-3xl bg-secondary-100 text-secondary-0"
                             />
                             
                             <h3 className="my-4 text-2xl font-bold">

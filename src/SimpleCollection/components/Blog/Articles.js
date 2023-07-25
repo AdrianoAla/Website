@@ -25,7 +25,7 @@ export default function Articles({block}) {
     , []);
 
     return (
-      <div className={`relative px-6 pt-16 pb-20 bg-ßgray-50 lg:px-8 lg:pt-24 lg:pb-28 ${block.theme} bg-[var(--primary)]`}>
+      <div className={`relative px-6 pt-16 pb-20 bg-ßgray-50 lg:px-8 lg:pt-24 lg:pb-28 ${block.theme} bg-primary-100`}>
         <div className="relative mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"><SafeHtml value={title}/></h2>
@@ -58,7 +58,7 @@ const Card = ({post, prefix}) => {
 
   return (
     <Link to={`${prefix}${post.contentId}`}>
-      <div key={basicInfo.title} className="flex flex-col overflow-hidden transition-all duration-150 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl hover:border-[var(--on\_primary)] max-h-[400px] h-full">
+      <div key={basicInfo.title} className="flex flex-col overflow-hidden transition-all duration-150 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl hover:border-primary-0 max-h-[400px] h-full">
         <div className="flex-shrink-0">
           {basicInfo.banner && <Image
             profile={post}
@@ -66,7 +66,7 @@ const Card = ({post, prefix}) => {
             className="object-cover w-full h-48"
           />}
         </div>
-        <div className="flex flex-col justify-between flex-1 p-6"  style={{backgroundColor: "color-mix(in lch, var(--primary) 98%, var(--on_primary) 2%)"}}>
+        <div className="flex flex-col justify-between flex-1 p-6 bg-primary-95">
           <div className="flex-1">
             <p className="text-sm font-medium text-indigo-600">
               <a className="hover:underline">
