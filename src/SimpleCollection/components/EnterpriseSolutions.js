@@ -33,8 +33,6 @@ export default function EnterpriseSolutions({block, profile, website}) {
                 CTA: CTA,
             }]);
 
-            console.log("link", CTA.href, website.makeHref(CTA.href));
-
         });
     }, []);
 

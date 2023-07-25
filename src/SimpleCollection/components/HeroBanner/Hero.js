@@ -19,7 +19,6 @@ export default function Hero({block, website, profile}) {
     const videoThumbnail = block.main.body?.imgs[0];
     const prompt = block.main.body?.paragraphs[0];
 
-    console.log(block.main.body);
 
     const [email, setEmail] = useState('');
 
@@ -68,10 +67,9 @@ export default function Hero({block, website, profile}) {
                     <input
                       type='button' 
                       value='Notify Me' 
-                      className='p-3 px-6 ml-3 text-secondary-0 transition-all bg-secondary-100 border border-secondary-100 rounded-md shadow-sm hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 hover:cursor-pointer' 
+                      className='p-3 px-6 ml-3 transition-all border rounded-md shadow-sm text-secondary-0 bg-secondary-100 border-secondary-100 hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 hover:cursor-pointer' 
                       onClick={() => 
                         website.submitWebsiteForm('newsletter', {email}).then((res) => {
-                          console.log(res)
                           alert("Thank you for your interest.")
                         })
                       }

@@ -18,7 +18,6 @@ export default function Contact({block, website}) {
   const phoneNumbers = body.paragraphs?.filter(element => element.match(phoneNumberRegex)) || [];
   const emails = body.links?.filter(element => element.label.match(emailRegex)) || [];
   const address = body.paragraphs?.filter(element => !element.match(phoneNumberRegex))?.[0] || [];
-  console.log(main);
 
 
   return (
@@ -102,7 +101,6 @@ const Form = (props) => {
       const message = event.target.message.value;
 
       website.submitWebsiteForm('contact', {email, firstName, lastName, phoneNumber, message}).then((res) => {
-        console.log(res)
         alert("Thank you for contacting us.")
       });
     }}>

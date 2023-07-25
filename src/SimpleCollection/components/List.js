@@ -16,7 +16,6 @@ import {SafeHtml, Image, Link} from '@uniwebcms/module-sdk';
 export default function List({block, profile, website}) {
 
   const {main, items} = block;
-  console.log("main", main);
   const {title, subtitle} = main?.header;
 
   const posts = items.map((item) => {

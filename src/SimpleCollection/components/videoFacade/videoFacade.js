@@ -143,9 +143,6 @@ function VideoFacade({
     style,
 }) {
 
-    console.log("VideoFacade", videoURL);
-    console.log("thumbnail", thumbnail);
-
     if (videoURL.startsWith("https://www.youtube.com/embed/") || videoURL.startsWith("https://player.vimeo.com/") || videoURL.startsWith("https://www.youtube-nocookie.com/embed")) {
         return EmbedVideoFacade({
             profile,

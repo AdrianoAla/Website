@@ -47,11 +47,10 @@ export default function Form({block, profile, website}) {
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium text-secondary-0 transition-all bg-secondary-100 border border-transparent rounded-md hover:bg-secondary-0 hover:text-secondary-100"
+                  className="flex items-center justify-center w-full px-5 py-3 text-base font-medium transition-all border border-transparent rounded-md text-secondary-0 bg-secondary-100 hover:bg-secondary-0 hover:text-secondary-100"
                   onClick={(e) => {
                     e.preventDefault();
                     website.submitWebsiteForm('newsletter', {email}).then((res) => {
-                      console.log(res)
                       alert("Thank you for your interest.")
                     });
                   }}
