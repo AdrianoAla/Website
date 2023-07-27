@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeHtml, Image, Link } from '@uniwebcms/module-sdk'
+import { SafeHtml, Icon, Link, twMerge } from '@uniwebcms/module-sdk'
 
 export default function Features({block, profile, website}) {
 
@@ -9,6 +9,9 @@ export default function Features({block, profile, website}) {
     const alignment = main.header.alignment;
   
     const [features, setFeatures] = useState([]);
+    console.log(block.params)
+    let background = block?.params?.background;
+    if (background == null || background == undefined) background = true;
 
     useEffect(() => {
         items.map((item) => {
@@ -17,19 +20,19 @@ export default function Features({block, profile, website}) {
 
             setFeatures(features => [...features,{
                 
-                name: header.subtitle || '',
-                description:  header.description || '',
-                icon: banner,
-                link: body?.links[0],
+                name: header?.subtitle || '',
+                description:  header?.description || '',
+                icon: body?.icons?.[0],
+                link: body?.links?.[0],
 
             }]);
         })
     }, []);
   
-  if (alignment == "center") return centerAlign(block, profile, features, subheading, title, subtitle);
+  if (alignment == "center") return centerAlign(block, profile, features, subheading, title, subtitle, background);
 
   return (
-    <div className={`py-24 bg-primary-100 sm:py-32 ${block.theme}`}>
+    <div className={`py-24 bg-primary-95 sm:py-32 ${block.theme}`}>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {alignment == "left" && 
@@ -49,18 +52,16 @@ export default function Features({block, profile, website}) {
             {features.map((feature) => (
               <div key={feature.name}>
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="flex items-center justify-center w-10 h-10 mb-6 rounded-lg bg-secondary-100">
-                    <Image 
-                      profile={profile}
-                      value={feature.icon.value}
-                      alt={feature.icon.alt}
-                      className="w-6 h-6 text-secondary-0"
+                  <div className={twMerge("flex items-center justify-center w-16 h-16 mb-6 rounded-lg", background && "bg-secondary-100 fill-secondary-0", !background && "bg-transparent fill-primary-0")}>
+                    <Icon 
+                      icon={feature.icon}
+                      className="w-12 h-12"
                     />
                   </div>
                   <div><SafeHtml value={feature.name} as="h3"/></div>
                 </dt>
                 <dd className="mt-1 text-base leading-7 text-gray-600"><SafeHtml value={feature.description}/></dd>
-                {feature.link && <Link to={website.makeHref(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.link.label} className="text-[var(--link)]"/></dd></Link>}
+                {feature.link && <Link to={(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.link.label} className="text-[var(--link)]"/></dd></Link>}
               </div>
             ))}
           </dl>
@@ -94,10 +95,10 @@ export default function Features({block, profile, website}) {
 }
 
 
-const centerAlign = (block, profile, features, subheading, title, subtitle) => {
+const centerAlign = (block, profile, features, subheading, title, subtitle, background) => {
   const main = block.main;
  return (
-    <div className={`py-24 bg-primary-100 sm:py-32 ${block.theme}`}>
+    <div className={`py-24 bg-primary-95 sm:py-32 ${block.theme}`}>
       <div className="px-6 mx-auto max-w-7xl lg:px-8">
         <div className="max-w-2xl mx-auto lg:text-center">
           {subheading && <h2 className="text-base font-semibold leading-7 text-indigo-600">
@@ -115,18 +116,16 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-16">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute top-0 left-0 flex items-center justify-center w-10 h-10 rounded-lg bg-secondary-100">
-                    <Image 
-                      profile={profile}
-                      value={feature.icon.value}
-                      alt={feature.icon.alt}
-                      className="w-6 h-6 text-secondary-0" 
+                  <div className={twMerge("absolute top-0 left-0 flex items-center justify-center w-16 h-16 rounded-lg", background && "bg-secondary-100 fill-secondary-0", !background && "bg-transparent fill-primary-0")}>
+                    <Icon 
+                      icon={feature.icon}
+                      className="w-12 h-12 text-secondary-0"
                     />
                   </div>
-                  <SafeHtml value={feature.name} as="h3"/>
+                  <SafeHtml value={feature.name} as="h3" className="pl-5" />
                 </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.description}/></dd>
-                {feature.link && <Link to={website.makeHref(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.link.label} /></dd></Link>}
+                <dd className="pl-5 mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.description}/></dd>
+                {feature.link && <Link to={(feature.link.href)} ><dd className="mt-2 text-base leading-7 text-gray-600"><SafeHtml value={feature.link.label} /></dd></Link>}
               </div>
             ))}
           </dl>
@@ -134,7 +133,7 @@ const centerAlign = (block, profile, features, subheading, title, subtitle) => {
       </div>
       {main.body?.links[0] && 
         <center>
-          <Link to={website.makeHref(main.body.links[0].href)} >
+          <Link to={(main.body.links[0].href)} >
             <button 
               className="px-6 py-3 mt-24 text-lg font-semibold text-center transition-all duration-300 border rounded-full text-secondary-0 bg-secondary-100 border-secondary-0 hover:shadow-2xl hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100">
                 <SafeHtml value={main.body.links[0].label} className="text-inherit"/>

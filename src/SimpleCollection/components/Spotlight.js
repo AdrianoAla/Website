@@ -1,4 +1,4 @@
-import {Image, SafeHtml, Link} from '@uniwebcms/module-sdk';
+import {Image, Icon, SafeHtml, Link} from '@uniwebcms/module-sdk';
 import React, {useEffect, useState} from 'react';
 
 export default function Spotlight({block, profile, page, website}) {
@@ -16,11 +16,11 @@ export default function Spotlight({block, profile, page, website}) {
           const { header, body, banner } = item;
 
           setFeatures(features => [...features,{
-              name: header.title || '',
-              description:  header.subtitle || '',
+              name: header?.title || '',
+              description:  header?.subtitle || '',
               button:  body?.links[0] || null,
-              icon: banner || null,
-              image : body?.imgs[0] || null,
+              icon: body?.icons?.[0] || null,
+              image : body?.imgs?.[0] || null,
           }]);
       })
     }, []);
@@ -48,11 +48,9 @@ export default function Spotlight({block, profile, page, website}) {
               <div className="lg:pt-4 lg:pr-4">
                 <div className="lg:max-w-lg">
                   {feature.icon && (
-                    <Image
-                      profile={profile}
-                      value={feature.icon.value}
-                      alt={feature.icon.alt}
-                      className="w-12 h-12 p-3 rounded-md bg-secondary-100 text-secondary-0"
+                    <Icon
+                      icon={feature.icon}
+                      className="w-12 h-12 p-3 rounded-md bg-secondary-100 fill-secondary-0"
                     />
                   )}
                   <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl" ><SafeHtml value={feature.name} as="h1"/></p>
@@ -63,9 +61,9 @@ export default function Spotlight({block, profile, page, website}) {
                     {feature.button && 
                       <Link
                         to={website.makeHref(feature.button.href)}
-                        className="inline-flex rounded-md bg-secondary-100 px-3.5 py-1.5 text-base font-semibold leading-7 text-secondary-0 shadow-sm hover:bg-secondary-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-100"
+                        className="inline-flex rounded-md bg-secondary-100 px-3.5 py-1.5 text-base font-semibold group leading-7 text-secondary-0 shadow-sm hover:bg-secondary-0 border border-secondary-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-100"
                       >
-                        <SafeHtml value={feature.button.label} as="span"/>
+                        <SafeHtml value={feature.button.label} className="text-secondary-0 group-hover:text-secondary-100"/>
                       </Link>
                     }
                   </div>

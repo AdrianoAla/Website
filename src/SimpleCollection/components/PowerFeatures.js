@@ -20,7 +20,7 @@ export default function PowerFeatures({block, profile}) {
     })
 
     return (
-        <div className={`bg-primary-100 ${block.theme}`}>
+        <div className={`bg-primary-100 ${block.theme} py-24`}>
             <div className={` py-16 text-center leading-[2.3rem]`}>
                 <h1 className="my-4 text-4xl font-bold sm:text-5xl sm:font-normal">
                     <SafeHtml value={title} />
@@ -46,8 +46,8 @@ export default function PowerFeatures({block, profile}) {
                             <p>
                                 {power.desc}
                             </p>
-                            {power.link && <Link to={power.link.href} className="my-2">
-                                <SafeHtml value={power.link.label} className="font-bold"/>
+                            {power.link && <Link to={power.link.href}>
+                                <SafeHtml value={power.link.label} className="py-2 font-bold"/>
                             </Link>}
                         </div>
                     ))

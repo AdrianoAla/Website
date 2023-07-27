@@ -19,6 +19,8 @@ export default function Contact({block, website}) {
   const emails = body.links?.filter(element => element.label.match(emailRegex)) || [];
   const address = body.paragraphs?.filter(element => !element.match(phoneNumberRegex))?.[0] || [];
 
+  console.log("body", body);
+
 
   return (
     <div className={` ${block.theme} relative bg-primary-100 isolate`}>
@@ -180,7 +182,7 @@ const Form = (props) => {
         <div className="flex justify-end mt-8">
           <button
             type="submit"
-            className="rounded-md bg-secondary-100 px-3.5 py-2.5 text-center text-sm font-semibold text-secondary-0 shadow-sm hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-secondary-100 px-3.5 py-2.5 text-center text-sm font-semibold text-secondary-0 shadow-sm hover:bg-secondary-0 hover:text-secondary-100 border border-secondary-100 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Send message
           </button>

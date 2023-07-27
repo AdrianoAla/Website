@@ -3,8 +3,18 @@
 @tailwind utilities;
 
 .pngborder {
-  filter: drop-shadow(0px -1px 0 white) 
-        drop-shadow(-1px 0px 0 white)
-        drop-shadow(0px 1px 0 white) 
-         drop-shadow(1px 0px 0 white);
+  filter: drop-shadow(0px -2px 0 white) 
+        drop-shadow(-2px 0px 0 white)
+        drop-shadow(0px 2px 0 white) 
+         drop-shadow(2px 0px 0 white);
+}
+
+.frosty {
+  background-color: rgba(233, 233, 233, 0.7);
+  backdrop-filter: saturate(200%) blur(15px);
+}
+
+.frosty-primary {
+  background-color: rgba(var(--primary), 0.7);
+  backdrop-filter: saturate(200%) blur(15px);
 }

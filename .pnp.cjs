@@ -6809,7 +6809,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", null],\
             ["@types/react-dom", null],\
             ["@types/tailwindcss", null],\
-            ["@uniwebcms/module-sdk", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.8.1"],\
+            ["@uniwebcms/module-sdk", "virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:1.8.1"],\
             ["flowbite-react", "virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:0.4.11"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"],\
@@ -6902,10 +6902,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.8.1", {\
-          "packageLocation": "./.yarn/__virtual__/@uniwebcms-module-sdk-virtual-0a5e1ffb11/0/cache/@uniwebcms-module-sdk-npm-1.8.1-0e6c3d2990-78b87951df.zip/node_modules/@uniwebcms/module-sdk/",\
+        ["npm:1.9.0", {\
+          "packageLocation": "./.yarn/cache/@uniwebcms-module-sdk-npm-1.9.0-8f7b6acc3e-9a80d44996.zip/node_modules/@uniwebcms/module-sdk/",\
           "packageDependencies": [\
-            ["@uniwebcms/module-sdk", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.8.1"],\
+            ["@uniwebcms/module-sdk", "npm:1.9.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:1.8.1", {\
+          "packageLocation": "./.yarn/__virtual__/@uniwebcms-module-sdk-virtual-069f29341a/0/cache/@uniwebcms-module-sdk-npm-1.8.1-0e6c3d2990-78b87951df.zip/node_modules/@uniwebcms/module-sdk/",\
+          "packageDependencies": [\
+            ["@uniwebcms/module-sdk", "virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:1.8.1"],\
             ["@headlessui/react", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.7.15"],\
             ["@popperjs/core", "npm:2.11.8"],\
             ["@react-google-maps/api", "virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:2.19.0"],\
@@ -6915,6 +6922,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"],\
             ["react-icons", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:4.10.1"],\
+            ["tailwind-merge", "npm:1.14.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.9.0", {\
+          "packageLocation": "./.yarn/__virtual__/@uniwebcms-module-sdk-virtual-9694d1b3b3/0/cache/@uniwebcms-module-sdk-npm-1.9.0-8f7b6acc3e-9a80d44996.zip/node_modules/@uniwebcms/module-sdk/",\
+          "packageDependencies": [\
+            ["@uniwebcms/module-sdk", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.9.0"],\
+            ["@headlessui/react", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.7.15"],\
+            ["@popperjs/core", "npm:2.11.8"],\
+            ["@react-google-maps/api", "virtual:43fd08b706778ac2b9c206bfc2a916ff4d3f1201f73493f7886d0ce195c5a97ad36211550a338c2fb3623995262d9b7441545e27c50cdfe8aeba544f0e17b9a7#npm:2.19.0"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["dompurify", "npm:3.0.5"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"],\
+            ["react-icons", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:4.10.1"],\
+            ["react-inlinesvg", "virtual:9694d1b3b35292aa3a5c5e05427e235db055f82511631cbf3408092a8f37601bccc2932b49096f55cf69da73b74101d65db0e8b2ba1d24bd3e9d629c377f915c#npm:3.0.2"],\
             ["tailwind-merge", "npm:1.14.0"]\
           ],\
           "packagePeers": [\
@@ -16251,6 +16282,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-from-dom", [\
+        ["npm:0.6.2", {\
+          "packageLocation": "./.yarn/cache/react-from-dom-npm-0.6.2-f8d11c6090-5d66b0c1eb.zip/node_modules/react-from-dom/",\
+          "packageDependencies": [\
+            ["react-from-dom", "npm:0.6.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:abb6c74137f3562c1c2abc8868aa55f1879b28cef40dfa68b13839c0a6cbd5de80d8c29a313dc719f453c46215b0a4d8819486bd3d40700b8a22cff30debd7bc#npm:0.6.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-from-dom-virtual-d703e28f76/0/cache/react-from-dom-npm-0.6.2-f8d11c6090-5d66b0c1eb.zip/node_modules/react-from-dom/",\
+          "packageDependencies": [\
+            ["react-from-dom", "virtual:abb6c74137f3562c1c2abc8868aa55f1879b28cef40dfa68b13839c0a6cbd5de80d8c29a313dc719f453c46215b0a4d8819486bd3d40700b8a22cff30debd7bc#npm:0.6.2"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-helmet-async", [\
         ["npm:1.3.0", {\
           "packageLocation": "./.yarn/cache/react-helmet-async-npm-1.3.0-240f565ac8-7ca7e47f8a.zip/node_modules/react-helmet-async/",\
@@ -16422,6 +16475,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react-dom",\
             "@types/react",\
             "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-inlinesvg", [\
+        ["npm:3.0.2", {\
+          "packageLocation": "./.yarn/cache/react-inlinesvg-npm-3.0.2-ba939b6936-05e31af59d.zip/node_modules/react-inlinesvg/",\
+          "packageDependencies": [\
+            ["react-inlinesvg", "npm:3.0.2"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:9694d1b3b35292aa3a5c5e05427e235db055f82511631cbf3408092a8f37601bccc2932b49096f55cf69da73b74101d65db0e8b2ba1d24bd3e9d629c377f915c#npm:3.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/react-inlinesvg-virtual-abb6c74137/0/cache/react-inlinesvg-npm-3.0.2-ba939b6936-05e31af59d.zip/node_modules/react-inlinesvg/",\
+          "packageDependencies": [\
+            ["react-inlinesvg", "virtual:9694d1b3b35292aa3a5c5e05427e235db055f82511631cbf3408092a8f37601bccc2932b49096f55cf69da73b74101d65db0e8b2ba1d24bd3e9d629c377f915c#npm:3.0.2"],\
+            ["@types/react", null],\
+            ["exenv", "npm:1.2.2"],\
+            ["react", "npm:18.2.0"],\
+            ["react-from-dom", "virtual:abb6c74137f3562c1c2abc8868aa55f1879b28cef40dfa68b13839c0a6cbd5de80d8c29a313dc719f453c46215b0a4d8819486bd3d40700b8a22cff30debd7bc#npm:0.6.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
             "react"\
           ],\
           "linkType": "HARD"\
@@ -17825,9 +17902,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["simple-collection", "workspace:src/SimpleCollection"],\
             ["@headlessui/react", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.7.15"],\
             ["@heroicons/react", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:2.0.18"],\
+            ["@popperjs/core", "npm:2.11.8"],\
             ["@tailwindcss/line-clamp", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:0.4.4"],\
             ["@uniwebcms/express", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:2.2.1"],\
-            ["@uniwebcms/module-sdk", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.8.1"],\
+            ["@uniwebcms/module-sdk", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:1.9.0"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:18.2.0"],\
             ["react-icons", "virtual:d929ae42cb26a9a30f37225e3d83e632dddd0d18ee93a78e943cde9c8ee349603430b731830395da160d9ad77a45370b99ba10b2dfe6e9a54588c351f2f3ed05#npm:4.10.1"],\

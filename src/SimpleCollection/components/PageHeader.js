@@ -3,14 +3,17 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, twMerge, Image, SafeHtml } from '@uniwebcms/module-sdk'
 import { useState } from 'react'
+import PopoverMenu from './PopoverMenu';
 
 export default function PageHeader({block, website, page, profile}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const pages =  website.getPageHierarchy({
-    nested: false,
-    filterEmpty: true
+    nested: true,
+    filterEmpty: false,
   });
+
+  console.log(pages);
 
   const [initialPosition, setIntialPosition] = useState(true);
   const [context, setContext] = useState("");
@@ -26,7 +29,7 @@ export default function PageHeader({block, website, page, profile}) {
   const activeRoute = page.activeRoute;
   const banner = block.main?.banner;
   
-
+  
   window.onscroll = function () {
     if (window.scrollY > 0 && initialPosition) {
       setIntialPosition(false);
@@ -48,7 +51,7 @@ export default function PageHeader({block, website, page, profile}) {
             profile={profile}
             value={banner.value}
             alt={banner.alt}
-            className={"-m-1.5 p-1.5 object-contain w-[50px] h-[50px] pngborder"}
+            className={"-m-1.5 p-1.5 h-[50px] object-contain w-auto pngborder"}
           />}
           <button
             type="button"
@@ -58,9 +61,9 @@ export default function PageHeader({block, website, page, profile}) {
             <span className="sr-only">Open main menu</span>
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </button>
-          <div className="hidden lg:ml-12 lg:block lg:space-x-14">
+          <div className="hidden lg:ml-12 lg:flex lg:space-x-14">
             {pages.map((page, index) => {
-              if (page.child_items?.length) {
+              if (page.child_items?.length != 0) {
                   return <NavbarMenu key={index} {...page} />;
               } else {
                   const { route, label } = page;
@@ -129,3 +132,32 @@ export default function PageHeader({block, website, page, profile}) {
   )
 
 }
+
+const NavbarMenu = ({ label, route, child_items }) => {
+  const menu = child_items.map((item, index) => {
+      const { route, label } = item;
+
+      return (
+          <Link key={index} to={route} className='block px-5 py-4 hover:bg-gray-50'>
+              <span className='text-base font-medium text-gray-900 md:text-lg'>{label}</span>
+          </Link>
+      );
+  });
+
+  return (
+      <PopoverMenu
+          trigger={
+              <>
+                  <span>{label}</span>
+              </>
+          }
+          triggerClassName={
+              ' group inline-flex items-center rounded-md text-base md:text-lg font-semibold text-primary-0 focus:outline-none'
+          }
+          position={''}
+          width={'200px'}
+          zIndex={'10'}
+          options={menu}
+      />
+  );
+};

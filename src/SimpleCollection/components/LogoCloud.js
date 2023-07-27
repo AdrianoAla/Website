@@ -8,11 +8,10 @@ export default function LogoCloud({block, profile}) {
     const {title} = main?.header || {};
 
     useEffect(() => {
-    const c = main.body.imgs.forEach((_, index) => {
+    const c = items.forEach(item => {
   
-
-        setClients(clients => [...clients,{
-            image: main.body.imgs[index],
+        setClients(clients => [...clients, {
+            image: item.banner
         }]);
     });
   }, []);
@@ -24,12 +23,12 @@ export default function LogoCloud({block, profile}) {
           <div className="mt-6 grid grid-cols-1 gap-0.5 md:grid-cols-3 lg:mt-8">
             {clients.map((client) => (
               <div className="flex justify-center col-span-1 px-8 py-8 transition-all ease-in-out bg-primary-95 hover:bg-primary-5 hover:cursor-pointer">
-                <Image
+                {client.image && <Image
                   profile={profile}
                   value={client.image.value}
                   alt={client.image.alt}
                   className={`object-contain max-h-12 w-full`}
-              ></Image>
+              ></Image>}
               </div>
             ))}
           </div>

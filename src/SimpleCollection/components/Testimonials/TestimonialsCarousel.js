@@ -19,13 +19,13 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                         profile={profile}
                         value={block.main.banner.value}
                         alt={block.main.banner.alt}
-                        className="object-cover w-full h-full text-primary-0"
+                        className="object-cover w-full h-full text-primary-0 saturate-[70%]"
                     />
                 </div>}
                 <div className="flex flex-row justify-center align-centre min-h-[45rem] items-center">
                     
-                    <div className="relative z-40 flex flex-col items-center justify-center py-4 mx-24 max-w-1/2 bg-primary-100 rounded-xl">
-                        <h1 className="px-4 text-5xl font-bold"><SafeHtml value={block.main?.header?.title}/></h1>
+                    <div className="relative z-40 items-center justify-center p-8 mx-24 max-w-1/2 frosty rounded-xl">
+                        <h1 className="px-4 text-4xl font-bold"><SafeHtml value={block.main?.header?.title}/></h1>
                         <h2 className="px-4 text-2xl"><SafeHtml value={block.main?.header?.subtitle}/></h2>
                     </div>
 
@@ -86,7 +86,7 @@ export default function TestimonialCarousel({block, profile, testimonials}) {
                                             )
                                         }
                                         return (
-                                                <div key={index} className="w-3 h-3 mx-2 transition-all bg-gray-400 rounded-full"></div>
+                                                <div key={index} className="w-3 h-3 mx-2 transition-all bg-gray-400 rounded-full hover:bg-gray-700 hover:cursor-pointer" onClick={()=>{setCurrent(index)}}></div>
                                         )
                                     })
                                     }

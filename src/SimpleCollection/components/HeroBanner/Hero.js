@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import './HeroBanner.css'
 import { VideoFacade } from '../videoFacade/videoFacade'
-import { SafeHtml, twMerge, Image } from '@uniwebcms/module-sdk'
+import { SafeHtml, twMerge, Image, Link } from '@uniwebcms/module-sdk'
 
 
 
@@ -18,7 +18,7 @@ export default function Hero({block, website, profile}) {
     const videoLink = block.main.body?.videos[0]?.src;
     const videoThumbnail = block.main.body?.imgs[0];
     const prompt = block.main.body?.paragraphs[0];
-
+    const button = block.main.body?.links[0];
 
     const [email, setEmail] = useState('');
 
@@ -40,7 +40,7 @@ export default function Hero({block, website, profile}) {
         <div className={twMerge("max-w-7xl", !videoFacade && "flex justify-center text-center")}>
           <div className="relative z-10 lg:w-full lg:max-w-2xl">
             <div className="relative px-6 pt-16 pb-8 lg:px-8 lg:pr-0">
-              <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl">
+              <div className={twMerge("max-w-2xl mx-auto lg:mx-0 lg:max-w-xl")}>
                 <div className="flexsm:mb-2">
                   <div className="text-lg text-gray-500 " >
                     <p><SafeHtml value={subheading} as="h2"/></p>
@@ -75,6 +75,15 @@ export default function Hero({block, website, profile}) {
                       }
                     />
                   </div>
+                </div>}
+                {button && <div className="flex flex-col mt-10 align-middle">
+                  <Link to={button.href || ""}>
+                    <input
+                      type='button'
+                      value={button.label}
+                      className='p-3 px-6 transition-all border rounded-md shadow-sm bg-secondary-100 text-secondary-0 border-secondary-100 hover:bg-secondary-0 hover:text-secondary-100 hover:border-secondary-100 hover:cursor-pointer'
+                    />
+                  </Link>
                 </div>}
               </div> 
             </div>
