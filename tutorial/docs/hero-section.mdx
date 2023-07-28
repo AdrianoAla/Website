@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+import Gallery from '../src/components/Gallery.js';
+
+# The Hero Component
+
+## Preview
+
+<Gallery images={['/img/hero/videonewsletter.png','/img/hero/video.png', '/img/hero/newsletter.png', '/img/hero/empty.png']} />
+
+## Main element
+
+### Accepted elements before header
+
+ - Background image *(optional)*
+    - Takes an image element.
+    - If none is provided the background will be the primary color defined by the user in the web theme.
+
+### Accepted elements in the header
+- Subheading
+- Title
+- Subtitle
+
+### Additional elements in body
+  - Newsletter *(optional)*
+    - Takes a paragraph element as a prompt.
+  - Video *(optional)*
+    - Takes a thumbnail and a video element.
+  - Action Link *(optional)*
+    - Takes a link element.
+

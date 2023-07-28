@@ -6,19 +6,18 @@ import { SafeHtml } from '@uniwebcms/module-sdk'
 export default function Details(props) {
     const { main, items } = props.block;
 
-    const { title, subtitle, alignment } = items[0].header;
+    const { title, subtitle, alignment } = main.header;
 
-    items.shift();
     const center = alignment === "center" ? true : false;
     const leftAlign = alignment != "right" ? true : false;
 
     const infos = items.map((item) => {
       const { header } = item;
 
-      const { title, subtitle } = header;
+      const { subtitle, description } = header;
       return {
-          title,
           subtitle,
+          description
       };
 
     });

@@ -14,18 +14,18 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "latest",
-    "@docusaurus/mdx-loader": "latest",
-    "@docusaurus/preset-classic": "latest",
+    "@docusaurus/core": "^2.4.1",
+    "@docusaurus/mdx-loader": "^2.4.1",
+    "@docusaurus/preset-classic": "^2.4.1",
     "@mdx-js/react": "^1.6.21",
     "@svgr/webpack": "^5.5.0",
-    "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
-    "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
+    "photoswipe": "^5.3.8",
     "prism-react-renderer": "^1.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-image-lightbox": "^5.1.4",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-photoswipe-gallery": "^2.2.7",
     "url-loader": "^4.1.1"
   },
   "browserslist": {
