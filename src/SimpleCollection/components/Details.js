@@ -43,8 +43,8 @@ export default function Details(props) {
               </dl>
             </div>
             {!leftAlign && <div className="lg:col-span-5">
-              <h3 className="text-2xl font-bold leading-10 tracking-tight !text-primary-0"><SafeHtml value={title}/></h3>
-              <p className="mt-4 text-base leading-7 !text-primary-0" ><SafeHtml value={subtitle} /></p>
+              <h3 className="text-2xl font-bold leading-10 tracking-tight !text-primary-0"><SafeHtml value={subtitle}/></h3>
+              <p className="mt-4 text-base leading-7 !text-primary-0" ><SafeHtml value={description} /></p>
             </div>}
           </div>
         </div>
