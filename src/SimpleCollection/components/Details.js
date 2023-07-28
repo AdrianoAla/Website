@@ -36,15 +36,15 @@ export default function Details(props) {
               <dl className="space-y-10">
                 {infos.map((faq) => (
                   <div key={faq.title }>
-                    <dt className="text-base font-semibold leading-7 !text-primary-0" ><SafeHtml value={faq.title} as="h1"/></dt>
-                    <dd className="mt-2 text-base leading-7 !text-primary-0" ><SafeHtml value={faq.subtitle} as="h2"/></dd>
+                    <dt className="text-base font-semibold leading-7 !text-primary-0" ><SafeHtml value={faq.subtitle} as="h1"/></dt>
+                    <dd className="mt-2 text-base leading-7 !text-primary-0" ><SafeHtml value={faq.description} as="h2"/></dd>
                   </div>
                 ))}
               </dl>
             </div>
             {!leftAlign && <div className="lg:col-span-5">
-              <h3 className="text-2xl font-bold leading-10 tracking-tight !text-primary-0"><SafeHtml value={subtitle}/></h3>
-              <p className="mt-4 text-base leading-7 !text-primary-0" ><SafeHtml value={description} /></p>
+              <h3 className="text-2xl font-bold leading-10 tracking-tight !text-primary-0"><SafeHtml value={title}/></h3>
+              <p className="mt-4 text-base leading-7 !text-primary-0" ><SafeHtml value={subtitle} /></p>
             </div>}
           </div>
         </div>
