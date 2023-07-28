@@ -74,7 +74,7 @@ function CenterAligned(title, subtitle, faqs, block) {
                   <>
                     <dt>
                       <Disclosure.Button className="flex items-start justify-between w-full text-left !text-primary-0" >
-                        <h3 className="text-base font-semibold leading-7"><SafeHtml value={faq.title}/></h3>
+                        <h3 className="text-base font-semibold leading-7"><SafeHtml value={faq.subtitle}/></h3>
                         <span className="flex items-center ml-6 h-7">
                           {open ? (
                             <MinusSmallIcon className="w-6 h-6" aria-hidden="true" />
@@ -85,7 +85,7 @@ function CenterAligned(title, subtitle, faqs, block) {
                       </Disclosure.Button>
                     </dt>
                     <Disclosure.Panel as="dd" className="pr-12 mt-2">
-                      <p className="text-base leading-7  !text-primary-0"><SafeHtml value={faq.subtitle}/></p>
+                      <p className="text-base leading-7  !text-primary-0"><SafeHtml value={faq.description}/></p>
                     </Disclosure.Panel>
                   </>
                 )}
