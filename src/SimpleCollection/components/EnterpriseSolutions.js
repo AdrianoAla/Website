@@ -20,7 +20,7 @@ export default function EnterpriseSolutions({block, profile, website}) {
 
             const {subtitle} = header;
 
-            let CTA = body.links[0];
+            let CTA = body.links?.[0];
 
             if (body.links.length > 0) {
               CTA = body.links[0];
